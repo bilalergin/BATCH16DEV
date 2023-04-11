@@ -44,6 +44,7 @@ public class RankHandler {
                 prize = 'Aluminium';
             }
         }
+        
 
         return prize;
     }
