@@ -2,8 +2,8 @@ public class LoopDemo {
     public void print1() {
         // print1, 10 times
         // Integer i; //null olur
-        Integer i = 1;
-        while (i<=10) {
+        Integer i = 1;//initial vaLUE
+        while (i<=10) {//exit statement
             System.debug(1);
             i++;
             
@@ -18,7 +18,7 @@ public class LoopDemo {
             i++;
             
         }
-        System.debug('after while i ==> ' + i); //what will be value of i? Bu loopun dışındaki değer. İ sorulduğunda hep while ın dışındaki değeri artış durumuna göre söyleyeceğiz. ikişerli artsaydı 27 olacaktı.
+        System.debug('after while i ==> ' + i); //what will be value of i?26 Bu loopun dışındaki değer. İ sorulduğunda hep while ın dışındaki değeri artış durumuna göre söyleyeceğiz. ikişerli artsaydı 27 olacaktı.
         
     }
     //print hello 10 times
@@ -38,6 +38,8 @@ public class LoopDemo {
     //print 1 to n numbers //fori yazıp entere basarsak for hazır halde gelir
     public void print_N_numbers(Integer n) {
         //String s ='this';////variable define işinin metot içinde yaparsak aşağıdakiler çaışır
+        //starts from 1, ends 10
+        //starst from 0, ends 9
         for (Integer i = 1; i <= n; i++) {
             System.debug(i);
             //System.debug(s);//variable define işinin metot içinde yaptığımız için buradan çağırabiliriz.
@@ -46,6 +48,7 @@ public class LoopDemo {
         //System.debug(s);//variable define işinin metot içinde yaptığımız için buradan çağırabiliriz.
 
     }
+    //print 1 to n numbers
     public void print_N_numbers2(integer n) {
         // print 1,2,3,4,5,6,7,8,9, ...n,
         String printN = '1';
