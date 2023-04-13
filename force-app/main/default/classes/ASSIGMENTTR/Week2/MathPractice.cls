@@ -39,14 +39,14 @@ public class MathPractice {  //* 6 nisan ödevi
         Decimal toplam;
         switch on urun {
             when 'EKMEK' {
-                toplam = 1 * adet;
+                toplam = 2.00 * adet;
                 System.debug('Almış olduğunuz ' + adet + ' adet ' + urun + ' tutarı ' + toplam + ' dolardır.');
             }when 'SİMİT'{
-                toplam = 2 * adet;
+                toplam = 3.00 * adet;
                 System.debug('Almış olduğunuz ' + adet + ' adet ' + urun + ' tutarı ' + toplam + ' dolardır.');
 
             }when 'KEK'{
-                toplam = 3 * adet;
+                toplam = 4.00 * adet;
                 System.debug('Almış olduğunuz ' + adet + ' adet ' + urun + ' tutarı ' + toplam + ' dolardır.');
 
             }when else {
