@@ -23,7 +23,7 @@ system.debug(teslaName + ' color is ' + teslaColor);
 
 tesla.details();//brackets means methods.
 
-carrr necar = new carrr('Ford');//böyle structor olmadığı için çalışmaz
+carrr newcar = new carrr('Ford');//böyle structor olmadığı için çalışmaz
 
 
 

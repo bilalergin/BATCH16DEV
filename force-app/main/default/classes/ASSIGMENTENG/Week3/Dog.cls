@@ -8,9 +8,9 @@ public Dog(){
     checkAge();
 }
 public Dog(string dogName, string dogColor, integer dogAge) {
-    String name = dogName;
-    String color = dogColor;
-    Integer age = dogAge;
+    name = dogName;
+    color = dogColor;
+    age = dogAge;
     checkAge();    
 }
 public void checkAge() {
