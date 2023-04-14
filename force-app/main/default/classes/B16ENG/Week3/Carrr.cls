@@ -4,11 +4,12 @@ public class Carrr {
     //metot olmadan doğrudan yazdık
     //we can use this as properties, 
     //we can assign values when we create instance.
-    String carNumber;
-    String name;
-    String color;
-    Integer mfgYear;
-    Decimal price; 
+    private String carNumber;//! hata alırsan buraya bak
+    public String name;//public variables are accesable outside of class
+    //access means; get values and we can set values.
+    public String color;
+    public Integer mfgYear;
+    Decimal price; //! başında public yazmadığı için bu da private
     //normalde metotlarda scope(kapsam) ulşma alanı sadece o metodun içindedir 
     //ancak yukarıdaki variablellar başka metotlara da ulaşabilir.
 
@@ -23,7 +24,7 @@ public class Carrr {
         printCarAge();// private metodu publicten çağırırsak çalışır.
         
     }
-    private void printCarAge() {
+    private void printCarAge() {//access modifiersı yazmazsak private olur.
         Date todayDate = Date.today();
         Integer currentYear = todayDate.year();
         System.debug('Car age is ' + (currentYear - mfgYear));

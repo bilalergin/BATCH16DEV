@@ -10,7 +10,11 @@ Bmw3.details();
 Carrr ford = new carrr('ABC10002', ' Ford Mustang', 'Red', 2022, 60000.00);
 ford.details();
 
-carrr tesla = new carrr('ABC10003', 'Tesla Model X', 'Silver', 2020, 70000.00);
+carrr tesla = new carrr('ABC10003', 'Tesla Model x', 'silver', 2020, 65000);
+string teslaName = tesla.name;//this is private
+string teslaColor = tesla.color;
+system.debug(teslaName + ' color is ' + teslaColor);
+
 //deatail()i cls'deki constructora yazdığımız için burada tekrar çağırmıyoruz.
 
 //dot operator
@@ -20,3 +24,7 @@ carrr tesla = new carrr('ABC10003', 'Tesla Model X', 'Silver', 2020, 70000.00);
 tesla.details();//brackets means methods.
 
 carrr necar = new carrr('Ford');//böyle structor olmadığı için çalışmaz
+
+
+
+CarrrProgram cp = new CarrrProgram();//private metodu yeni bir sınıftan çağırdık
