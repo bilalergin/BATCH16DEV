@@ -6,6 +6,8 @@ b.details();
 // b.bikeNumber = 'b10001'; //will this work? PRIVATE.çalışmaz
 System.debug('--------------------------');
 
+
+//non static metotlarda new instance oluşturup öyle çağırıyoruz
 Bike b2 = new Bike();
 b2.name = 'BMW D';
 b2.price = '4444.55';

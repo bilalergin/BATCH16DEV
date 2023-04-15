@@ -3,4 +3,8 @@ public class Calculator2 {
         return (a+b);
 
     }
+    public static decimal add(decimal x, decimal y) {
+        return (x + y);
+        
+    }
 }
