@@ -1,4 +1,5 @@
-public with sharing class Ogrenci {
+public class Ogrenci {
+    //!08 ve 15.04.2023
     /*Ogrenci adında bir class
     first name
     last name
@@ -9,6 +10,9 @@ public with sharing class Ogrenci {
     ingilizce notu
     matematik notu
     fen bilgisi notu*/
+    public integer ogrenciSayisi=0;
+    public static integer statikSayi=0;
+
     public string firstName;
     public string lastName;
     private string schoolName = 'Dream School';
@@ -21,7 +25,10 @@ public with sharing class Ogrenci {
     public integer mathGrade;
 
 public Ogrenci() {
-    System.debug('Yeni bir ogrenci kaydoldu.. hayirli olsun..');
+    ogrenciSayisi++;//her girildiğinde öğrenci sayısı bir artsın.statik olmayan metottan çağırıyoruz
+    statikSayi++;//statik metottan çaığırıyoruz.
+    System.debug('Yeni bir ogrenci kaydoldu.. Ogrenci sayimiz(non-statik) => '+ ogrenciSayisi);
+    System.debug('Yeni bir ogrenci kaydoldu.. Ogrenci sayimiz(statik) => '+ statikSayi);
 }
 
 public Ogrenci(string firstName, string lastName, integer mathGrade){

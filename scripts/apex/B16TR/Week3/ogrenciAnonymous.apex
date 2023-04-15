@@ -9,7 +9,7 @@ ogrenci1.ingGrade = 100;
 ogrenci1.fenGrade = 95;
 ogrenci1.mathGrade = 90;
 System.debug('ogrenci1 => ' + ogrenci1);
-
+system.debug('================================');
 Ogrenci ogrenci2 = new Ogrenci();
 ogrenci2.firstName = 'John';
 ogrenci2.lastName = 'Doe';
@@ -21,9 +21,11 @@ ogrenci2.ingGrade = 90;
 ogrenci2.fenGrade = 100;
 ogrenci2.mathGrade = 95;
 System.debug('ogrenci2 => ' + ogrenci2);
+system.debug('================================');
 
 Ogrenci ogrenci3 = new Ogrenci('Lisa', 'Fire', 90);
 System.debug('ogrenci3 => ' + ogrenci3);
+system.debug('================================');
 
 Ogrenci ogrenci4 = new Ogrenci('David', 'Fire', 100);
 System.debug('ogrenci4 => ' + ogrenci4);
