@@ -36,35 +36,14 @@ public class ListDemo2 {
         //15 l1[1]
         //21 l1[2]
         //integer eachNumber ==> integer because list<integer>
-                //eachNumber ==> variable name to be used inside for loop, where we get one by one value
+                //eachNumber ==> variable name to be used inside for loop, where we get one by one value //! iterate demek değerleri birer birer getirmek
         //for each loop
         for( integer eachNumber : l1 ){
             system.debug(eachNumber);
         }
-   }
-
-   public static void iterateList() {
-        list<integer> l1 = new list<integer>();
-        l1.add(77);//0
-        l1.add(15);//1
-        l1.add(21);//2
-        l1.add(99);//3
-        l1.add(77);//4
-        l1.add(77);//5
-        //get one by one element and print.
-        //77 l1[0]
-        //15 l1[1]
-        //21 l1[2]
-        //integer eachNumber ==> integer because list<integer>
-                //eachNumber ==> variable name to be used inside for loop, where we get one by one value
-        //for each loop
-        for( integer eachNumber : l1 ){
-            system.debug(eachNumber);
-        }
-   }
+   }  
+   
    public static void iterateList2() {
-
-
     list<integer> l2 = new list<integer>();
     l2.add(77);//0
     l2.add(15);//1
@@ -72,10 +51,10 @@ public class ListDemo2 {
     l2.add(99);//3
     l2.add(77);//4
     l2.add(77);//5
-    //get one by one element and print.
-    //77 l1[0]
-    //15 l1[1]
-    //21 l1[2]
+    //get one by one element and print.(iterate)
+    //77 l2[0]
+    //15 l2[1]
+    //21 l2[2]
     //integer eachNumber ==> integer because list<integer>
             //eachNumber ==> variable name to be used inside for loop, where we get one by one value
     //for each loop
@@ -85,7 +64,7 @@ public class ListDemo2 {
     //5 * 15= 75
     //5 * 21= 105
     for( integer eachNumber : l2 ){
-        system.debug('5 X ' + eachNumber + ' =' + 5*eachNumber);
+        // system.debug('5 X ' + eachNumber + ' =' + 5*eachNumber);//! iki şekilde de yazdırılabilir.
         system.debug('5 X ' + eachNumber + ' =' + (5*eachNumber));
     }
     }
@@ -120,7 +99,7 @@ public class ListDemo2 {
         listC.add('Kunal'); //2
         listC.add('Marc');  //3
         listC.add('Marc');  //4
-        listC.add('Elonnnn');
+        listC.add('Elonnnn');//5
         
         //print each element of this list<string> one by one along with its length
             //Marc - 4
@@ -135,7 +114,7 @@ public class ListDemo2 {
     }
 
     //concate all elements in list by || and return final string
-   public static string add(list<string> ls){
+   public static string add(list<string> ls){//! listi new instance la veya parametre olarak yazmaya nasıl karar veriyoruz?
     string finalString = '';
     for (string eachStr : ls) {
         system.debug('final str inside for ==> ' + finalString);
