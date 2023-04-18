@@ -26,7 +26,7 @@ public class ListDemo {
          system.debug('after : ' + listC);
  
          string returnValue = '';
-         integer size = listC.size(); //5, max index => 4
+         integer size = listC.size(); //5, max index => 4 => size - 1 = index
          if(i >= 0 && i < size){
              returnValue = listC.get(i);
          } else {
