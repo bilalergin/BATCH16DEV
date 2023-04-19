@@ -1,7 +1,7 @@
 public with sharing class MapDemo {
     public static void mapExample() {
-        //key -> string //bir tane unique olur
-        //value -> integer //aynı değer olabilir
+        //key -> string //bir tane unique olur. Map in içindeki ilk değer
+        //value -> integer //aynı değer olabilir. Map in içindeki 2. değer
         Map<string, integer> map1 = new Map<string, Integer>();
         //we want to add key-value pair
         //put means add
