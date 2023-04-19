@@ -1,6 +1,6 @@
 ListDemo2.iterateList2();
 
-ListDemo2.iterateList();
+ListDemo2.iterateList1();
 listDemo2.friendList();
 
 boolean check1 = ListDemo2.candidateList('Steve');

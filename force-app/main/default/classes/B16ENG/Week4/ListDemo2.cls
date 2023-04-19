@@ -1,4 +1,6 @@
 public class ListDemo2 {
+
+    //! 18.04.2023
     public static boolean candidateList(string str){
         List<string> listC = new list<string>();
         system.debug('before : ' + listC);
@@ -114,8 +116,8 @@ public class ListDemo2 {
     }
 
     //concate all elements in list by || and return final string
-   public static string add(list<string> ls){//! listi new instance la veya parametre olarak yazmaya nasıl karar veriyoruz?
-    string finalString = '';
+   public static string add(list<string> ls){//! listi new instance la veya parametre olarak yazmaya nasıl karar veriyoruz? eğer burada değer verirsek new intance yapıyoruz. değeri başka yerden alırsak parametre giriyoruz
+    string finalString = '';//! değeri başka methotdan aldığımız için parametre girdik
     for (string eachStr : ls) {
         system.debug('final str inside for ==> ' + finalString);
         finalString = finalString + eachStr + ' || ';
@@ -124,5 +126,27 @@ public class ListDemo2 {
     return finalString;
 }
 
+//! 19.04.2023
+
+public static void iterateListString99(){// list 9 un elemanlarının kaç harften oluştuklarını yazdırdık
+    list<string> list9 = new list<string>{'class', 'object', 'methods', 'constructor', 'getter setter', 'list'};
+    system.debug(listDemo2.add(list9));//! değeri kendimiz methot içinde girdiğimiz için new intance yaptık
+    //example:
+        //class
+        //class - 5
+        //object
+        //object - 6
+    list<string> list99 = new list<string>();   
+    //we are iterating list9.
+    //inside for each loop of list9, we cannot modify(add or remove elements from) list9. 
+    //solution?
+        //create another empty list and add elements in the new list
+    for (string eachTopic : list9) {
+        string temp = eachTopic + ' - ' + eachTopic.length();
+        list99.add(eachTopic);
+        list99.add(temp);
+    }
+    system.debug(list99);
+}
     
  }
