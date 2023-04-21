@@ -1,5 +1,6 @@
 public class SetDemo2 {
     public static void setToUpperCase() {
+        //! 19.04.2023
         //set of string
         set<string> cities = new set<string>();
         cities.add('Tokyo');//sette aynı değeri birden fazla yazdıramıyoruz.
