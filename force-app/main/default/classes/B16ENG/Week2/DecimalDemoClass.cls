@@ -1,10 +1,10 @@
 public class DecimalDemoClass {
-    //04.04.2023
+    //! 04.04.2023
     public void practice1(){
         decimal myMoney = 554.89456123;
 
         //1. create another decimal till 2 digits after decimal points
-        decimal myMoney2 = myMoney.setScale(2);
+        decimal myMoney2 = myMoney.setScale(2);//set scale deki rakam kadar ondalık kalıyor sayıda
         system.debug('myMoney 2 --> ' + myMoney2);
 
         string myMoney2Str = myMoney2.toPlainString();
@@ -26,12 +26,18 @@ public class DecimalDemoClass {
 
         string s1 = '33.2564';
         decimal s1Dec = decimal.valueOf(s1);
+        System.debug(s1Dec);
+        
+        decimal s3 = 33.2564;
+        decimal s1int = integer.valueOf(s3);//valueOf ile data typları değiştiriyoruz
+        System.debug(s1int);
+
         // decimal s1Dec = decimal.valueOf(s1) + 1; //! Buraya +1 yazınca önce +99 u yapıyor sonra +1 koyuyor.
         system.debug(s1+99);    //33.256499
         system.debug(s1Dec+99); //132.2564
 
         
-        string s2 = s1Dec.toPlainString();
+        string s2 = s1Dec.toPlainString();//33.256411 stringe döndü
         system.debug(s2+11);
     }
 }

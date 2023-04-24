@@ -1,4 +1,5 @@
 public class PrimitiveDatatypeDemo {
+    //! 31.03.2023
     //public =>> data type
     //return type =>> void
     //method name =>> print1 (kodları çağırma metotları)

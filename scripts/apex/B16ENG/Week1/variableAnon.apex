@@ -26,7 +26,7 @@ String x= 'This', y='is', z= 'simple';
 System.debug(x+y+z);// this is simple, gelir
 
 String strr= 'PRR';
-System.debug(STRR);// strr STRR olarak çalışır çünkü apex incase sensitive dir. 
+System.debug(STRR);// strr STRR olarak da çalışır çünkü apex incase sensitive dir. 
 
 String str = 'This is';
 //string str = 'Giving error' //! Böyle çalışmaz. Üstteki variable name le aynı olduğu için.
@@ -34,7 +34,7 @@ str = 'Giving error'; //bunu yazınca reassign etmiş oluyoruz ve birinci update
 System.debug(str); //? aynı variable name le execute yapamayız. Çalışmaz.
 
 string example = 'some string'; //defining a variable
-//string example = 'some other string';//re-defining a variable - this variable already exist. will thow error
+//string example = 'some other string';//re-defining a variable - this variable already exist. will throw error
 system.debug(example);
 
 //todo declaring means just creating variable // declare edilmiş ama değeri yok declare demek. Sonradan değer atanabilir

@@ -6,3 +6,12 @@ n.printAll();
 //1111
 //3. print this third
 //2222
+
+//! Buraya sonradan bi bak
+// MethodsMethodsDemo m = new MethodsMethodsDemo();
+// m.print1and2();
+//iiii
+//1. print this first
+//zzzz
+//2. print this second
+//vvvv

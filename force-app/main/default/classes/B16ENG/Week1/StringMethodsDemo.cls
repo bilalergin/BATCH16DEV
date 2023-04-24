@@ -1,4 +1,5 @@
 public class StringMethodsDemo {
+    //! 01.03.2023
     //create a new method called stringMethod1
     //method name = stringMethod1
     public void stringMethod1() {

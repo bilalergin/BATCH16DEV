@@ -1,5 +1,5 @@
 public class DateTimeMethodsDemo {
-    //03.04.2023
+    //! 04.04.2023
     public void calculateAgeInMonths() {
         System.debug('we will calculate our age in months');//doğum günü ve bugünkü tarihe ihtiyacımız var
         Date todayDate = date.today();
@@ -43,7 +43,7 @@ public class DateTimeMethodsDemo {
         //belirli bir günden hesaplama
         Date gun = date.newInstance(2017, 5, 25);
         Date songun = gun.addDays(1686);
-        System.debug(songun);
+        System.debug('son gün'+songun);
     }
     public void printOfferEndDatetime(){
         //today -> date
