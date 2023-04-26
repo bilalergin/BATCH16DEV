@@ -1,4 +1,5 @@
 public class Employee2 {
+     //! 26.04.2023
     public string name;
     public decimal salary;
     public static decimal minSalary = 5000;
