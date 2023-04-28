@@ -15,7 +15,7 @@ public class LoopDemoRev {
     //provide a < b
     public static void basicForLoop2(integer a, integer b) {
         //s = 15, 16,17,18,19, ... 33,
-        string s = '';
+        string s = '';//sayıları yanyana yazdırmak için bu s variable ını oluşturduk
         for (Integer i = a; i <= b; i++) {
             s += i + ', ';
         }
