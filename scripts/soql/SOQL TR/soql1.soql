@@ -1,0 +1,12 @@
+select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account 
+
+
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null
+
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name
+
+
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name desc
+
+
+select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where Name LIKE '%Oil%'
