@@ -1,1 +1,67 @@
 select id, name,phone, website, Active__c from account
+
+
+SELECT ID, NAME, mailingcity from contact where name like '%a%' 
+//içinde a bulunan kelimeleri getir
+// % işaretine wild card da denir
+
+SELECT ID, NAME, mailingcity from contact where name like '%a' 
+//son harfi a olan kelimeleri getir
+
+SELECT ID, NAME, mailingcity from contact where name like 'a%' 
+//ilk harfi a olanları getir
+
+SELECT ID, NAME, mailingcity from contact where mailingcity = 'PARIS'
+//malilincity paris olanları getir
+
+SELECT ID, NAME,firstName, mailingcity from contact where firstName like 't_m'
+//_ olduğu yerde bir karakterlik yer olur
+// % işareti gösterdiğimiz karakterden varsa sayısına bakmadan getirir
+
+
+SELECT id,name, project_name__C, status__c  from salesforce_project__C where project_name__c like 'p%'
+//custom objectten(salesforce project) ilk harfi p olan recordları çağırdık
+
+
+select id, name, phone, mailingcity from contact where mailingcity !=''
+select id, name, phone, mailingcity from contact where mailingcity <> ''
+select id, name, phone, mailingcity from contact where mailingcity !=null
+//üstteki son üçü aynı sonucu verir. malingcity boş olmayanları getirir
+
+select id,phone, website,NumberOfEmployees from account where NumberOfEmployees >100
+//çalışan sayısı 10 den fazla olanları getirir
+
+select id,phone, website,NumberOfEmployees from account where NumberOfEmployees !=120
+select id,phone, website,NumberOfEmployees from account where NumberOfEmployees <>120
+//bu ikisi aynı anlam gelir 120 ye eşit olmayanları getir demek
+
+select id, name, phone, website,NumberOfEmployees from account where website != null and NumberOfEmployees > 500
+select id, name, phone, website,NumberOfEmployees from account where website != null or NumberOfEmployees > 500
+//and ve or operators
+
+select id, name, phone, website,NumberOfEmployees from account where (phone!= '' and website != null) or NumberOfEmployees > 500
+// and ve or u beraber kullanırsak birini parantez içinde yazmalıyız
+
+select id, name, subject__c, status__c, priority__c from salesforce_ticket__c where status__c !='' and priority__c = 'High'
+
+select id, name, phone, mailingcity from contact where mailingcity in ('Paris' , 'dc' ,'ny')
+//aynı türden recordları getirmek için in yazıp değerleri parantez içinde çağırıyoruz
+
+select id, name, phone, mailingcity from contact where mailingcity not in ('Paris' , 'dc' ,'ny')
+//not in dersek yazdıklarımız dışındakileri getir
+
+
+select id, name, phone, mailingcity from contact where mailingcity not in ('Paris' , 'dc' ,'ny') order by name
+//isme göre sıralar. default olarak ascending olarak sıralar
+
+select id, name, phone, mailingcity from contact where mailingcity not in ('Paris' , 'dc' ,'ny') order by name desc
+//ters harf sırasına göre sıralar
+
+select id, name, phone, mailingcity from contact where mailingcity not in ('Paris' , 'dc' ,'ny') order by name desc limit 5
+//yazdığımız sayı kadar record görürüz
+
+select id,name,phone,createddate from account order by createddate desc limit 1
+//oluşturduğumuz son recordu getirir. tarihe göre
+
+select id, name, phone, createddate from account where name != '' order by createddate desc limit 10
+// önce where sonra order by en son da LİMİTİ kullanıyoruz. limit her zaman sonda oluyor

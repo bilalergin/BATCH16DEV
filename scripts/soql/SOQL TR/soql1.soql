@@ -1,12 +1,12 @@
 select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account 
 
 
-Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null //web sitesi olanları getir
 
-Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name
-
-
-Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name desc
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name //isim sırasına göre getir
 
 
-select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where Name LIKE '%Oil%'
+Select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where website != null order by name desc //tersten harf sırasına göre getir
+
+
+select id, name, AnnualRevenue, phone, BillingState, Industry, Website  from account where Name LIKE '%Oil%' //yüzdelik işaretinin arasında yazılanları getir

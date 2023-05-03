@@ -103,6 +103,19 @@ public class MapDemoAgain {
         map99.put('Sales', l2);
         map99.put('Service', l3);
 
-        system.debug(map99);
+        system.debug('Map99 is ' + map99);
+
+        List<list<string>> listValue = map99.values();
+        Set<string> allTeams = map99.keySet();
+        for (string eachTeam : allTeams) {
+            List<String> eachTeamCandidates = map99.get(eachTeam);
+            System.debug('Teams name ' + eachTeam);
+            System.debug('Team members are ' + eachTeamCandidates);
+            for (string eachMember : eachTeamCandidates){
+                System.debug(eachMember + ' is in ' + eachTeam);
+                
+            }
+            
+        }
     }
 }
