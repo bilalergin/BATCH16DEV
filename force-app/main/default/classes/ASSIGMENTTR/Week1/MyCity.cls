@@ -33,4 +33,14 @@ public class MyCity {
         //2.yol
         system.debug('Bugünün tarihi: ' + Datetime.now() + 've 36 ay öncesinin tarihi:' + (Datetime.now().addMonths(-36)));
      }
+
+
+     public void pirt(Integer sayi, String message) {
+        for (Integer i = 1; i <=sayi; i++) {
+            System.debug(sayi +' ' + message);
+            
+        }
+     }
+     
+     
 }

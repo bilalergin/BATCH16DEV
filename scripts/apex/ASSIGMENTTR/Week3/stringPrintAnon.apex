@@ -1,0 +1,1 @@
+StringPrint.pirint(10, 'Message ');

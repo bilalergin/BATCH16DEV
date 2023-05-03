@@ -1,4 +1,5 @@
 public class SoqlDemo {
+    //! 02.05.2023
     public static void accountSOQL1() {
         list<account> listAcc = [select id, name, phone from account];
         system.debug('listAcc: ' + listAcc);
@@ -28,6 +29,7 @@ public class SoqlDemo {
             system.debug('acc name is ' + eachacc.Name);
             system.debug('acc phone is ' + eachacc.phone);
             system.debug('acc number is ' + eachacc.accountnumber);
+            System.debug('acc website ' + eachAcc.Website);//listede olmadığı için query fatal erroru verir apexi execute edince
             system.debug('------');
         }
     }

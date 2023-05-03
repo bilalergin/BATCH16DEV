@@ -57,4 +57,6 @@ public class MathPractice {  //* 6 nisan ödevi
     }
 
     
+
+    
 }

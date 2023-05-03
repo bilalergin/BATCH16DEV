@@ -4,6 +4,7 @@ select id, name,phone, website, Active__c from account
 SELECT ID, NAME, mailingcity from contact where name like '%a%' 
 //içinde a bulunan kelimeleri getir
 // % işaretine wild card da denir
+// _ işaretine de wild card da denir
 
 SELECT ID, NAME, mailingcity from contact where name like '%a' 
 //son harfi a olan kelimeleri getir
@@ -65,3 +66,42 @@ select id,name,phone,createddate from account order by createddate desc limit 1
 
 select id, name, phone, createddate from account where name != '' order by createddate desc limit 10
 // önce where sonra order by en son da LİMİTİ kullanıyoruz. limit her zaman sonda oluyor
+
+
+select id, name, accountnumber, phone from account where createddate = yesterday
+// dün oluşturduğumuz recorda ulaşırız.
+
+select id, name, accountid, closeDate, amount from opportunity where closeDate = tomorrow
+//yarınki sonucu getirir
+
+select id, name, accountid, closeDate, amount from opportunity where closeDate = THIS_WEEK
+//bu haftaki sonuçlar
+
+select id, name, accountid, closeDate, amount from opportunity where closeDate = last_n_days:100
+//son 100 gün
+
+select id, name, accountid, closeDate, amount from opportunity where closeDate = next_n_days:50 and closedate = this_week
+//sonraki 50 gün içinden bu hafta olanları getirir
+
+select id, name, email, accountid, account.name, account.website from contact
+//child ocject contactan paretn object account bilgilerini çağırdık. childdan parentı çağırırken . kullanıyoruz.(account.name gibi)
+//standart relationshipte . kullanıyoruz
+
+select id, name, subject__c, status__c, salesforce_project__c, salesforce_project__r.project_name__c, salesforce_project__r.status__c  from salesforce_ticket__c
+//custom object relationshiple yaptık. __r custom relationship i gösteriyor. Sonu __r olan parent object
+
+select id, name, amount, closedate, account.annualrevenue, account.website from opportunity
+//child opportunityi kullanarak hem opportunity den hem de accounttan record çağırdık
+
+SELECT Id, First_Name__c, Last_Name__c, Salary__c, department__r.name__c, department__r.short_code__c FROM Employee__c
+//Employee__c childdan, department__r parent bilgisi çektik
+
+select id, name, (select name, email from contacts) from account
+//parent tan child bilgilerini aldık
+
+select id, name, (select name, amount from opportunities where amount > 100000) from account
+select id, name, (select name, amount from opportunities where amount !=null) from account
+//amounta göre record çağırdık
+
+select id, name, (select name, amount from opportunities where amount != null), (select name, email from contacts) from account
+//iki tane farklı childdan bilgi aldık. inner query adını duyarsak bu parenttan child çağırmak demektir. 
