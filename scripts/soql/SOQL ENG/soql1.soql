@@ -105,3 +105,36 @@ select id, name, (select name, amount from opportunities where amount !=null) fr
 
 select id, name, (select name, amount from opportunities where amount != null), (select name, email from contacts) from account
 //iki tane farklı childdan bilgi aldık. inner query adını duyarsak bu parenttan child çağırmak demektir. 
+
+select id, name, name__c, (select first_name__c, country__c from Employees__r) from department__c
+//custom parenttan custom child bilgilerini çektik
+
+SELECT Id, Country__c, Department__c, department__r.name__C, Email__c, First_Name__c, JoinDate__c, Last_Name__c, Salary__c FROM Employee__c
+//Department__r -> relationship field   //name__c --field name //custom childdan custom parent bilgilerini çektik
+
+SELECT Id, Name, Country__c, Department__c, Email__c, First_Name__c, JoinDate__c, Last_Name__c, Phone_No__c, Salary__c FROM Employee__c order by country__c, first_name__c
+//önce ülkeye göre sıraladık ardından first namye göre. önce ülke yaptığımız için aynı ülkenin elemanlarına göre isimleri sıralıyor.
+
+select id, name, account.name, account.industry from contact where account.industry = 'energy'
+//parenttan energye göre getirdik
+
+SELECT country__c, count(id) from employee__c group by country__c
+//id sayısı ve ülkelere göre çağıdık
+
+select count(id), count(shippingcity), industry, sum(annualrevenue) from account group by industry
+//sum la toplam geliri hesapladık
+
+select sum(salary__c), avg(salary__c), country__c from employee__c group by country__c
+//ülkelere göre saları toplamı ve ortalamasını getirdi
+
+select sum(salary__c), avg(salary__c), department__r.name__c from employee__c group by department__r.name__c having avg(salary__c) > 900000
+//salarisi 9000000 den büyük recordları getirir
+
+select sum(salary__c), avg(salary__c), department__r.name__c from employee__c where country__c = 'USA' group by department__r.name__c having avg(salary__c) > 900000
+//usa de salarisi 9000000 den büyük recordları getirir
+
+select name, count(id) from account group by name having count(id) > 1
+//duplicate recordları getirdik
+
+select country__c, count(id) from employee__c group by country__c having count(id) > 3
+//3 ten fazla employee si olan ülkeleri getirdik

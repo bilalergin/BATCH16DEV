@@ -1,18 +1,18 @@
 public class SoqlDemo {
     //! 02.05.2023
     public static void accountSOQL1() {
-        list<account> listAcc = [select id, name, phone from account];
+        list<account> listAcc = [SELECT id, name, phone from account];
         system.debug('listAcc: ' + listAcc);
 
-        list<contact> listCon = [select id, name, phone from contact];
+        list<contact> listCon = [SELECT id, name, phone from contact];
         system.debug('listCon: ' + listCon);
 
-        list<account> listAcc22 = [select id,name,phone,createddate from account order by createddate desc limit 1];
+        list<account> listAcc22 = [SELECT id,name,phone,createddate from account order by createddate desc limit 1];
         System.debug('listAcc '+ listAcc22);//! accounttan bir sobjeyi böyle getirebiliriz. Sonuç liste olduğu için () arasında gelir.
     }
 
     public static void accountSOQLOneRecord(){
-        account acc = [select id, name, phone, createddate from account order by createddate desc limit 1];
+        account acc = [SELECT id, name, phone, createddate from account order by createddate desc limit 1];
         system.debug('acc record ' + acc);//! bir sobjeyi liste yazmadan da böyle getirebilirz. Sonuç obje olduğu için {} arasında gelir.
         
         string accountName = acc.Name; //use dot operation to get any FIELD value
@@ -22,7 +22,7 @@ public class SoqlDemo {
     }
 
     public static void accountSOQL_3() {
-        list<account> listAcc = [select id, name, accountnumber, phone from account order by createddate desc];
+        list<account> listAcc = [SELECT id, name, accountnumber, phone from account order by createddate desc];
 
         for (account eachAcc : listAcc) {
             system.debug('each account: ' + eachAcc);

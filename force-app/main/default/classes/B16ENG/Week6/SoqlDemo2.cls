@@ -1,7 +1,7 @@
 public class SoqlDemo2 {
     //! 03.05.2023
     public static void projectSOQL1(){
-        list<salesforce_project__c> sp = [select id, name, project_name__c, status__c from salesforce_project__c where Status__c = 'New'];
+        list<salesforce_project__c> sp = [SELECT id, name, project_name__c, status__c from salesforce_project__c where Status__c = 'New'];
 
         for (Salesforce_Project__c eachSP : sp) {
             system.debug('project name is ' + eachSP.Project_Name__c + ', its status is ' + eachSP.Status__c);
@@ -10,7 +10,7 @@ public class SoqlDemo2 {
 
     public static void projectSOQL1(string status){
         //[soql ]
-        list<salesforce_project__c> sp = [select id, name, project_name__c, status__c from salesforce_project__c where Status__c = :status];//binding data :
+        list<salesforce_project__c> sp = [SELECT id, name, project_name__c, status__c from salesforce_project__c where Status__c = :status];//binding data :
 
         for (Salesforce_Project__c eachSP : sp) {
             system.debug('project name is ' + eachSP.Project_Name__c + ', its status is ' + eachSP.Status__c);
@@ -19,7 +19,7 @@ public class SoqlDemo2 {
 
     //Opportunities to Accounts
     public static void childToParentSOQL1() {
-        list<Opportunity> listOPP = [select id, name, amount, closedate, account.annualrevenue, account.name from opportunity];
+        list<Opportunity> listOPP = [SELECT id, name, amount, closedate, account.annualrevenue, account.name from opportunity];
         //print opp name, opp amount, acc name, acc revenue
 
         for (Opportunity eachOpp : listOPP) {
