@@ -30,7 +30,7 @@ select id, name, phone, mailingcity from contact where mailingcity !=null
 //üstteki son üçü aynı sonucu verir. malingcity boş olmayanları getirir
 
 select id,phone, website,NumberOfEmployees from account where NumberOfEmployees >100
-//çalışan sayısı 10 den fazla olanları getirir
+//çalışan sayısı 100 den fazla olanları getirir
 
 select id,phone, website,NumberOfEmployees from account where NumberOfEmployees !=120
 select id,phone, website,NumberOfEmployees from account where NumberOfEmployees <>120

@@ -34,12 +34,12 @@ public static void parentToChild() {
     List<Account> accList = [select id, name, createdDate, (select id, name from contacts), (select id, name from opportunities) from account order by createdDate desc limit 5];
     //accountlarin isimlerini ve bagli olan contactlarin isimlerini tek tek yazdiralim..
     for (account acc : accList) {
-        System.debug('account = ' + acc.name);
+        System.debug('account = ' + acc.name);//34. satırdan [] içindeki name aldık. Account tan name aldık.
         if (!acc.Contacts.isEmpty()) {
             System.debug('=======Contact================');
-             System.debug('contactlar = ' + acc.Contacts);
-             for (contact con : acc.Contacts) {
-                System.debug('contact name = ' + con.name);
+             System.debug('contactlar = ' + acc.Contacts);// 34. satırdaki () parantezin içindeki her şeye ulaşıyoruz. Yani tüm cantact lara
+             for (contact con : acc.Contacts) {//34. satırdaki () parantezin içindeki istediğimiz fielda ulaşmak için for yapıyoruz. contact ın fieldlarına
+                System.debug('contact name = ' + con.name);//34. satırdaki () listeden name aldık. contact tan name aldık
              }
         }
         System.debug('=========Opportunity===========');
