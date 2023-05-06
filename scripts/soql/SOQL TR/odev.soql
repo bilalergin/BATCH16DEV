@@ -1,0 +1,33 @@
+                    //04.05.2023 ödevi
+
+SELECT id, name, annualRevenue FROM account WHERE name LIKE 'United%'
+//1. Name i ‘United’ ile başlayan tüm accountların id,name,annual revenue fieldlarını getirin
+
+SELECT id, name, annualRevenue FROM account WHERE name ='United%'
+//2. Name i ‘United%’  tam eşleşen tüm accountların id,name,annual revenue fieldlarını getirin.
+
+SELECT id, name, annualRevenue FROM account WHERE name LIKE 'united\%%'
+//3. Name i ‘United%’  başlayan tüm accountların id,name,annual revenue fieldlarını getirin
+
+SELECT id, name, annualrevenue FROM account where annualrevenue !=null ORDER BY annualrevenue DESC LIMIT 3
+//4. Annual Revenue field ı en yüksek olan ilk 3 account u getirin.
+
+SELECT name, Rating, Phone FROM Account ORDER BY CreatedDate DESC LIMIT 1
+//5. En son create edilen account un name,rating ve phone bilgilerini getirin.
+
+select id, name, email, account.name from contact where title like '%VP%'
+//6. Title ı VP yi içeren contact ların name,email ve account name bilgilerini 
+getir.
+
+SELECT Name, Amount, CloseDate FROM Opportunity WHERE StageName = 'Closed Won'
+//7. ’Closed-Won’ olan tüm opportunity lerin name,amount ve close date bilgilerini getirin
+
+SELECT Id, Name, Amount FROM Opportunity WHERE Amount > 100000
+//8. Amount u 100,00 den büyük olan tüm opportunity leri getirin.
+
+SELECT Name, Account.Name, Account.Rating FROM Opportunity WHERE Account.Type = 'Customer - Direct'
+//9. Account type ı customer direct olan tüm opportuniy lerin name,account name,account rating bilgilerini getir.
+
+select subject__c, status__c, salesforce_project__r.project_name__c, salesforce_project__r.status__c,recordtypeid  from salesforce_ticket__c where salesforce_project__r.status__c ='Completed'
+//10. Salesforce Project status ü completed olan tüm salesforce ticket ların subject,status ve record type bilgilerini getirin.
+// salesforce_ticketta record type ı düzenlemeye izin yok. Ayrıca API name larde de recordntype diye bir alan yok. O nedenle recordtypeid yi aldım onlar da boş geliyor.

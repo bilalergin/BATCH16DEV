@@ -1,4 +1,5 @@
 public class SoqlDemo3 {
+    //! 05.05.2023
     public static void childToParentQuery() {
         //contact is child
         //account is parent

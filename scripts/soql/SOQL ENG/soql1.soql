@@ -1,3 +1,5 @@
+SOQL= S OBJECT QUERY LANGUAGE
+
 select id, name,phone, website, Active__c from account
 
 
@@ -138,3 +140,9 @@ select name, count(id) from account group by name having count(id) > 1
 
 select country__c, count(id) from employee__c group by country__c having count(id) > 3
 //3 ten fazla employee si olan ülkeleri getirdik
+
+select country__c, count(id), sum(salary__c), max(salary__c), min(salary__c) from employee__c group by country__c 
+//group by alanlara göre gruplandırma yaptık
+
+select country__c, count(id), sum(salary__c), max(salary__c), min(salary__c) from employee__c group by country__c having count (id) >3
+//group by alanlara göre gruplandırma yaptık ve id sayısı 3 ten fazla olanları getirdik
