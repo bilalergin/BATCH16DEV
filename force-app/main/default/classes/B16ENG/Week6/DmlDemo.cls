@@ -1,4 +1,5 @@
 public class DmlDemo {
+    //! 07.05.2023
     public static void dmlInsert1() {
         //create new account record
 
@@ -40,6 +41,7 @@ public class DmlDemo {
         //insert statement
         insert e;
         System.debug(e);
+        
     }
 
     public static void dmlUpdate1() {

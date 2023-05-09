@@ -146,3 +146,6 @@ select country__c, count(id), sum(salary__c), max(salary__c), min(salary__c) fro
 
 select country__c, count(id), sum(salary__c), max(salary__c), min(salary__c) from employee__c group by country__c having count (id) >3
 //group by alanlara göre gruplandırma yaptık ve id sayısı 3 ten fazla olanları getirdik
+
+select id,name__C, createddate from department__c order by createddate desc limit 1
+//son oluşturulan departmanı verir

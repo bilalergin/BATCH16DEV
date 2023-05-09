@@ -6,4 +6,3 @@ SoqlUygulamalar.selectIndustry('Energy');
 SoqlUygulamalar.childToParent();
 
 SoqlUygulamalar.parentToChild();
-

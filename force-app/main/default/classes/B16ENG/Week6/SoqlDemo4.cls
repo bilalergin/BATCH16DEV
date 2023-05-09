@@ -58,4 +58,20 @@ public class SoqlDemo4 {
             system.debug(' employee ' + eachEmp);
         }
     }
+    public static void sObjectDynamicSoql1(string sObjectName, list<string> fieldNames) {
+
+        string query = 'select ';
+        query += fieldNames.toString().removeStart('(').removeEnd(')');
+        query += ' from ' + sObjectName;
+
+        system.debug('FINAL QUERY IS ::: ' + query);
+        list<sObject> listRecords = database.query(query);
+        for (sObject sobj : listRecords) {
+            system.debug(sobj);
+            for (string  eachField : fieldNames) {
+                system.debug(eachField + ' value is : ' + sobj.get(eachField));
+            }
+            system.debug('-------');
+        }
+    }
 }

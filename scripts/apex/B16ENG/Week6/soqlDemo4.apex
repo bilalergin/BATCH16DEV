@@ -8,3 +8,11 @@ system.debug('----');
 SoqlDemo4.accDynamicSoql1('id, name, phone, website, active__c ');
 
 SoqlDemo4.aggregateQuery();
+
+
+list<string> fields = new list<string>{'name','phone', 'email'};
+SoqlDemo4.sObjectDynamicSoql1('contact', fields);
+
+
+list<string> fields = new list<string>{'name','phone', 'website'};
+SoqlDemo4.sObjectDynamicSoql1('account', fields); 
