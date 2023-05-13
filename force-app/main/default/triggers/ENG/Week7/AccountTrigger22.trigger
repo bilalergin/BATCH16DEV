@@ -1,27 +1,115 @@
-//Change SOBJECT  --> Account
-//save
-//DEPLOY
 trigger AccountTrigger22 on Account ( before insert, after insert, before update, after update) {
 
+    if (Trigger.isAfter && Trigger.isUpdate) {  
+        integer websiteChange = 0;
+        
+        for (Id eachId : Trigger.newMap.keySet()) {
+            //how to check if website field is changed?
+                //new account's website field NOT EQUAL to old account's website field
+            
+            Account oldAcc = Trigger.oldMap.get(eachId);
+            Account newAcc = Trigger.newMap.get(eachId);
+
+            if (oldAcc.website != newAcc.website) {
+                system.debug('for account: ' + newAcc.Name + ', NEW website is ' + newAcc.website);
+                websiteChange++;
+            }
+        }
+        system.debug('website changed in ' + websiteChange + ' accounts');
+    }
 
 
-    if(Trigger.isBefore && Trigger.isInsert){
-        system.debug('before insert trigger.old: ' + trigger.old);
-        system.debug('before insert trigger.new: ' + trigger.new);
-    }
-    if(Trigger.isAfter && Trigger.isInsert){
-        system.debug('after insert trigger.old: ' + trigger.old);
-        system.debug('after insert trigger.new: ' + trigger.new);
-    }
 
-    if(Trigger.isBefore && Trigger.isUpdate){
-        system.debug('before update trigger.old: ' + trigger.old);
-        system.debug('before update trigger.new: ' + trigger.new);
-    }
-    if(Trigger.isAfter && Trigger.isUpdate){
-        system.debug('after update trigger.old: ' + trigger.old);
-        system.debug('after update trigger.new: ' + trigger.new);
-    }
+
+
+
+
+    // List<account> newAccounts = Trigger.new;
+    // Map<id, account> newAccountsMap = Trigger.newMap;
+
+    // List<account> oldAccounts = Trigger.old;
+    // Map<id, account> oldAccountsMap = Trigger.oldMap;
+
+
+
+    // if (Trigger.isAfter && Trigger.isUpdate) {
+    //     //set<id> allKeys = newAccountsMap.keySet();
+    //     for (Id eachId : newAccountsMap.keySet()) {
+    //         system.debug('account id is ' + eachId);
+    //         account oldAcc = oldAccountsMap.get(eachId);
+    //         account newAcc = newAccountsMap.get(eachId);
+
+    //         system.debug('acc id: ' + eachId + ', old acc name is ' + oldAcc.Name + ', new acc name is ' + newAcc.Name);
+    //     }
+
+    // }
+
+    // //ids of newMap and oldMap will be same or NOT same?
+
+    // if(Trigger.isBefore && Trigger.isInsert){
+    //     system.debug('====BEFORE INSERT=====');
+    //     system.debug('before insert trigger.old: ' + trigger.old);
+    //     system.debug('before insert trigger.new: ' + trigger.new);
+    //     system.debug('before insert trigger.oldMap: ' + trigger.oldMap);
+    //     system.debug('before insert trigger.newMap: ' + trigger.newMap);
+    // }
+    // if(Trigger.isAfter && Trigger.isInsert){
+    //     system.debug('====AFTER INSERT=====');
+    //     system.debug('after insert trigger.old: ' + trigger.old);
+    //     system.debug('after insert trigger.new: ' + trigger.new);
+    //     system.debug('after insert trigger.oldMap: ' + trigger.oldMap);
+    //     system.debug('after insert trigger.newMap: ' + trigger.newMap);
+    // }
+
+    // if(Trigger.isBefore && Trigger.isUpdate){
+    //     system.debug('====BEFORE UPDATE=====');
+    //     system.debug('before update trigger.old: ' + trigger.old);
+    //     system.debug('before update trigger.new: ' + trigger.new);
+    //     system.debug('before update trigger.oldMap: ' + trigger.oldMap);
+    //     system.debug('before update trigger.newMap: ' + trigger.newMap);
+    // }
+    // if(Trigger.isAfter && Trigger.isUpdate){
+    //     system.debug('==== AFTER UPDATE =====');
+    //     system.debug('after update trigger.old: ' + trigger.old);
+    //     system.debug('after update trigger.new: ' + trigger.new);
+    //     system.debug('after update trigger.oldMap: ' + trigger.oldMap);
+    //     system.debug('after update trigger.newMap: ' + trigger.newMap);
+    // }
+    
+
+    system.debug('----');
+    //we can do this in Before Update also (since we are JUST printing we can do in any)
+    // if (Trigger.isAfter && Trigger.isUpdate) {
+
+    //     for (account oldAcc : Trigger.old) {
+    //         system.debug('old acc id: ' + oldAcc.Id + ', old acc name: ' + oldAcc.Name + 'old acc rating: ' + oldAcc.Rating);
+    //     }
+        
+    //     List<account> newAccounts = Trigger.new;
+    //     for (account newAcc : newAccounts) {
+    //         system.debug('new acc id: ' + newAcc.Id + ', new acc name: ' + newAcc.Name + 'new acc rating: ' + newAcc.Rating);
+    //     }
+    // }
+
+    // system.debug('----');
+
+    // if(Trigger.isBefore && Trigger.isInsert){
+    //     system.debug('before insert trigger.old: ' + trigger.old);
+    //     system.debug('before insert trigger.new: ' + trigger.new);
+    // }
+    // if(Trigger.isAfter && Trigger.isInsert){
+    //     system.debug('after insert trigger.old: ' + trigger.old);
+    //     system.debug('after insert trigger.new: ' + trigger.new);
+    // }
+
+    // if(Trigger.isBefore && Trigger.isUpdate){
+    //     system.debug('before update trigger.old: ' + trigger.old);
+    //     system.debug('before update trigger.new: ' + trigger.new);
+    // }
+    // if(Trigger.isAfter && Trigger.isUpdate){
+    //     system.debug('after update trigger.old: ' + trigger.old);
+    //     system.debug('after update trigger.new: ' + trigger.new);
+    // }
 
     
     // //trigger.new is LIST<sObject>
@@ -76,7 +164,7 @@ trigger AccountTrigger22 on Account ( before insert, after insert, before update
     //     system.debug('after update account trigger called');
     // }
 
-    system.debug('---');
+    //system.debug('---');
 
    
     // system.debug('isBefore --> ' + trigger.isBefore);

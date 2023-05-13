@@ -8,30 +8,30 @@ trigger AccountTrigger on Account ( before insert, after insert, before update, 
 
 //trigger.new is LIST<sObject>
 
-list<account> newAccounts = trigger.new;
-if (Trigger.isBefore && Trigger.isInsert) {
-    system.debug('before insert trigger.new : ' + trigger.new);
-    system.debug('before insert number of records : ' + trigger.new.size());
+// list<account> newAccounts = trigger.new;
+// if (Trigger.isBefore && Trigger.isInsert) {
+//     system.debug('before insert trigger.new : ' + trigger.new);
+//     system.debug('before insert number of records : ' + trigger.new.size());
     
-    for (account eachAcc : trigger.new) {
-        system.debug('Before insert - new acount ID: ' + eachAcc.Id);
-        system.debug('Before insert - new acount Name: ' + eachAcc.Name);
-    }
-}
-if(Trigger.isAfter && Trigger.isInsert){
-    system.debug('after insert trigger.new : ' + newAccounts);
-    system.debug('after insert number of records : ' + newAccounts.size());
+//     for (account eachAcc : trigger.new) {
+//         system.debug('Before insert - new acount ID: ' + eachAcc.Id);
+//         system.debug('Before insert - new acount Name: ' + eachAcc.Name);
+//     }
+// }
+// if(Trigger.isAfter && Trigger.isInsert){
+//     system.debug('after insert trigger.new : ' + newAccounts);
+//     system.debug('after insert number of records : ' + newAccounts.size());
     
-}
-if (Trigger.isBefore && Trigger.isUpdate) {
-    system.debug('before Update trigger.new : ' + trigger.new);
-    system.debug('before Update number of records : ' + trigger.new.size());
-}
-if(Trigger.isAfter && Trigger.isUpdate){
-    system.debug('after Update trigger.new : ' + newAccounts);
-    system.debug('after Update number of records : ' + newAccounts.size());
-}
-}
+// }
+// if (Trigger.isBefore && Trigger.isUpdate) {
+//     system.debug('before Update trigger.new : ' + trigger.new);
+//     system.debug('before Update number of records : ' + trigger.new.size());
+// }
+// if(Trigger.isAfter && Trigger.isUpdate){
+//     system.debug('after Update trigger.new : ' + newAccounts);
+//     system.debug('after Update number of records : ' + newAccounts.size());
+// }
+// }
 
     // //we are learning trigger context variables.
 
@@ -130,4 +130,4 @@ if(Trigger.isAfter && Trigger.isUpdate){
     
 //     system.debug('----');
 // }
-// }
+}

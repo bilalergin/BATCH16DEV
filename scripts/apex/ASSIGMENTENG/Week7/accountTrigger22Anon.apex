@@ -6,3 +6,7 @@ for (Integer i = 0; i < 5; i++) {
 }
 
 insert listAcc;
+
+Map<integer, string> map1 = new map<integer, string>{1=>'one', 2=> 'two'};
+set<integer> allKeys = map1.keySet();
+system.debug('all keys => ' + allKeys);
