@@ -3,30 +3,58 @@
 //DEPLOY
 //! 10.05.2023
 //! trigger kodları nerede işlem yaparsak yapalım çalışır. Mesela DML, Page Layout veya data loader la işlem yapsak da bu kodlar çalışır
+//todo before save veya update bastıktan sonra işlem daha kaydedilmeden gelen bilgidir. after ise kayıt işlemi bittikten sonra gelendir.
 trigger AccountTrigger on Account ( before insert, after insert, before update, after update) {
 
-    //we are learning trigger context variables.
+//trigger.new is LIST<sObject>
 
-    //Before Insert event
-    if(Trigger.isBefore && Trigger.isInsert){
-        system.debug('before insert account trigger called');
+list<account> newAccounts = trigger.new;
+if (Trigger.isBefore && Trigger.isInsert) {
+    system.debug('before insert trigger.new : ' + trigger.new);
+    system.debug('before insert number of records : ' + trigger.new.size());
+    
+    for (account eachAcc : trigger.new) {
+        system.debug('Before insert - new acount ID: ' + eachAcc.Id);
+        system.debug('Before insert - new acount Name: ' + eachAcc.Name);
     }
-    //After insert event
-    if(Trigger.isAfter && Trigger.isInsert){
-        system.debug('after insert account trigger called');
-    }
+}
+if(Trigger.isAfter && Trigger.isInsert){
+    system.debug('after insert trigger.new : ' + newAccounts);
+    system.debug('after insert number of records : ' + newAccounts.size());
+    
+}
+if (Trigger.isBefore && Trigger.isUpdate) {
+    system.debug('before Update trigger.new : ' + trigger.new);
+    system.debug('before Update number of records : ' + trigger.new.size());
+}
+if(Trigger.isAfter && Trigger.isUpdate){
+    system.debug('after Update trigger.new : ' + newAccounts);
+    system.debug('after Update number of records : ' + newAccounts.size());
+}
+}
+
+    // //we are learning trigger context variables.
+
+    // //Before Insert event
+    // if(Trigger.isBefore && Trigger.isInsert){
+    //     system.debug('before insert account trigger called');
+    // }
+    // //After insert event
+    // if(Trigger.isAfter && Trigger.isInsert){
+    //     system.debug('after insert account trigger called');
+    // }
 
     
-    //Before Update event
-    if(Trigger.isBefore && Trigger.isUpdate){
-        system.debug('before update account trigger called');
-    }
-    //After update event
-    if(Trigger.isAfter && Trigger.isUpdate){
-        system.debug('after update account trigger called');
-    }
+    // //Before Update event
+    // if(Trigger.isBefore && Trigger.isUpdate){
+    //     system.debug('before update account trigger called');
+    // }
+    // //After update event
+    // if(Trigger.isAfter && Trigger.isUpdate){
+    //     system.debug('after update account trigger called');
+    // }
 
-    system.debug('---');
+    // system.debug('---');
 
    
     // system.debug('isBefore --> ' + trigger.isBefore);
@@ -54,7 +82,7 @@ trigger AccountTrigger on Account ( before insert, after insert, before update, 
     // }
 
     // system.debug('----');
-}
+//}
 
 
 
