@@ -11,5 +11,5 @@
 
 for (string isim : Personel.keySet()) {
     System.debug(isim);
-    System.debug(Personel.get(isim));
+    System.debug(Personel.get(isim));//buradaki get ile parantezin içindeki keyin valularını alıyoruz.
 }

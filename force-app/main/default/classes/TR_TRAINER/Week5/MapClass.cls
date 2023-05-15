@@ -22,13 +22,13 @@ public class MapClass {
         
         //2. asama ayri bir map olusturalim. 5 sehir ve sicaklik ortalamalarini tutsun.
         Map<string, decimal> mapOrtSicaklik = new Map<string, decimal>();
-        for (string city : citiesOfHot.keySet()) {
-            System.debug(city + ' = ' + citiesOfHot.get(city));
+        for (string city : citiesOfHot.keySet()) {//keyset() keyleri(sehir ismi) gtiriyor.
+            System.debug(city + ' = ' + citiesOfHot.get(city));//gt(city) citilerin valularını(derece) getiriyor.
             decimal sum = 0;
             for (decimal eachDerece : citiesOfHot.get(city)) {
                 sum += eachDerece;
             }
-            decimal Average = sum/citiesOfHot.get(city).size();
+            decimal Average = sum/citiesOfHot.get(city).size();//size sayıyı getiriyor ve bölmede bu sayı kullanılıyor
             mapOrtSicaklik.put(city, Average.setScale(1));
         }
         System.debug('map ort sicaklik = ' + mapOrtSicaklik);

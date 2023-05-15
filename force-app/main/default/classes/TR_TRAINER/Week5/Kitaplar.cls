@@ -1,4 +1,5 @@
 public class Kitaplar {
+    //! ========= 26 Nisan ===========
     //Constructor
     //Class Variables
     //getter setter
@@ -24,10 +25,10 @@ public class Kitaplar {
         return this.kitapAdi;
     }
 
-    public void setYazar(string yazar) {
+    public void setYazar(string yazar) {//setle değer atıyoruz.
         this.yazar = yazar;
     }
-    public string getYazar() {
+    public string getYazar() {//getle değeri görüyoruz
         return this.yazar;
     }
 
@@ -45,7 +46,7 @@ public class Kitaplar {
         System.debug('Toplam Kitap Sayisi : ' + kitapSayisi);
     }
 
-    public static void toplamKitap() {
+    public static void toplamKitap() {//static metodun içinde non static değer kullanamayız. mesela this.yazar olmaz.
         System.debug('Toplam Kitap Sayisi : ' + kitapSayisi);
     }
 }
