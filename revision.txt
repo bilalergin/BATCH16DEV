@@ -5,6 +5,8 @@ All trigger context variables studied till date
 - Trigger.isInsert
 - Trigger.isUpdate
 - Trigger.isDelete
+- Trigger.isUndelete
+
 Yukarıdakiler boolean 
 
 - Trigger.New
@@ -34,3 +36,20 @@ Yukarıdakiler boolean
         - Same values of trigger.old in before update and after update?
             - Same.
    
+- Trigger.NewMap
+    - map<id, sObject>
+    - newly inserted or updated record.
+    - Available in which Events? 
+        - after insert. NOT available in before insert. Why? Bcz no id.
+        - before update, after update?
+            - yes.
+
+- Trigger.OldMap
+    - map<id, sobject>.
+    - previous version of updated record.
+    - Available in which events?
+        - Before update,after update, before delete, after delete
+
+//how can we check if we have update ONE particular field?
+    //trigger.isUpdate
+        // old record field value != new record field value

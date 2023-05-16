@@ -5,18 +5,57 @@
 //! trigger kodları nerede işlem yaparsak yapalım çalışır. Mesela DML, Page Layout veya data loader la işlem yapsak da bu kodlar çalışır
 //todo before save veya update bastıktan sonra işlem daha kaydedilmeden gelen bilgidir. after ise kayıt işlemi bittikten sonra gelendir.
 trigger AccountTrigger on Account (before insert, before update) {
-    if (trigger.isUpdate && trigger.isAfter) {
-        for (Account acc : Trigger.new) {
-            if a(cc.Active__c ='Yes') { // Only update if Active__c field is not null
-                acc.Description = 'Account is Active';
-                // Compare old and new value if this is an update
-                if (acc.Active__c ='No') {
-                    acc.Description = 'Account is Inactive';
+
     
-                   }
-        }
-        }
-    }
+        //! Assigment 25 ----16.05.2023
+
+    // if (Trigger.isBefore) {
+    //     for (Account newAcc : Trigger.new) {
+    //         //check insert
+    //         if (Trigger.isInsert && newAcc.active__c == 'Yes') {
+    //             //update description field
+    //             //set new field value
+    //             newAcc.Description = 'Account is Active';
+    //         }
+    //         if (Trigger.isInsert && newAcc.active__c == 'No') {
+    //             //update description field
+    //             //set new field value
+    //             newAcc.Description = 'Account is Inactive';
+    //         }
+
+    //         //check if update
+    //         if(Trigger.isUpdate){
+    //             //if active field is changed, and active field new value is 'yes'
+    //                 //old acc active field != new acc active field AND new acc active field == yes
+    //             if(newAcc.Active__c != Trigger.oldMap.get(newAcc.id).Active__c
+    //             && newAcc.Active__c == 'Yes'){
+    //                 newAcc.Description = 'Account is active';
+    //             }
+    //             // Id accId = newAcc.id;
+    //             // Account oldAccount = Trigger.oldMap.get(accId);
+
+    //             // if(newAcc.Active__c != oldAccount.Active__c && newAcc.Active__c == 'Yes'){
+                    
+    //             // }
+    //         }
+
+    //         if(Trigger.isUpdate){
+    //             //if active field is changed, and active field new value is 'yes'
+    //                 //old acc active field != new acc active field AND new acc active field == yes
+    //             if(newAcc.Active__c != Trigger.oldMap.get(newAcc.id).Active__c
+    //             && newAcc.Active__c == 'No'){
+    //                 newAcc.Description = 'Account is Inactive';
+    //             }
+    //             // Id accId = newAcc.id;
+    //             // Account oldAccount = Trigger.oldMap.get(accId);
+
+    //             // if(newAcc.Active__c != oldAccount.Active__c && newAcc.Active__c == 'Yes'){
+                    
+    //             // }
+    //         }
+    //     }
+    // }
+
     
 
 
