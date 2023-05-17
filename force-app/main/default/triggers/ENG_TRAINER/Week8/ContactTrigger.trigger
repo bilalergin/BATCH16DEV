@@ -6,6 +6,7 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
     if (Trigger.isBefore && Trigger.isUpdate) {
         //call handler method to validate contact update
         ContactTriggerHandler.validate1(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+        ContactTriggerHandler.validate2(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
     }
     //! 12.05.2023
 // //this will be true in before insert and before update

@@ -13,7 +13,20 @@ public class ContactTriggerHandler {
              if (oldContact.leadsource == 'Partner Referral') {
                  newContact.addError('Cannot update contact if lead source is partner referral');
              }
- 
+              
          }
     }
- }
+    public static void validate2(List<contact> cTriggerNew, List<contact> cTriggerOld, Map<id, contact> cTriggerNewmap, map<id, contact> cTriggerOldMap) {
+        //validate
+        //DO NOT ALLOW USER to update LeadSource field.
+        for (contact newContact : cTriggerNew) {
+            //validate if lead source is updated.
+            //how to check if lead source is updated?
+                //old contact leadsource != new contact lead source
+            Contact oldContact = cTriggerOldMap.get(newContact.id);
+            if (newContact.leadsource != oldContact.LeadSource) {
+                newContact.LeadSource.addError('Cannot update lead source! Please user. Behave! ');
+            }
+        }
+   }
+}
