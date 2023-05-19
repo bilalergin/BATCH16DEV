@@ -14,6 +14,7 @@ trigger AccountTrigger22 on Account ( before insert, after insert, before update
     }
     if(Trigger.isAfter && Trigger.isUndelete){
         //call method to send email to user
+        AccountTriggerHandler.sendAccEmail(trigger.new);
         
     }
 

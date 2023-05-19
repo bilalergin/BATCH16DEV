@@ -14,4 +14,37 @@ public class SPTRiggerHandler {
         }
         insert listST;
     }
+    //! Amacımız: Eğer ticket lar complete değilse project de complete yapılamasın
+    public static void validate1(list<salesforce_project__c> spTriggerNew, list<salesforce_project__c> spTriggerOld, Map<id, salesforce_project__c> spTriggerNewMap,Map<id, salesforce_project__c> spTriggerOldMap) {
+        //logic
+        
+        //assuming we update 10 SP
+            //only in 3 projects we are updating status to completed
+        
+        //create set of id
+            //for each loop triggernew
+                //old status != new status and new status = completed
+                    //add SP ID to set<id>
+        set<id> spId = new set<id>();
+        for (Salesforce_Project__c newSP : spTriggerNew) {
+            //old status != new status and new status = completed
+            if (newSP.status__c != spTriggerOldMap.get(newSP.id).Status__c && newSP.Status__c == 'Completed') {
+                 //add SP ID to set<id>
+                spId.add(newSP.Id);
+            }
+        }
+
+        //get all the tickets of spid where status is not completed
+        List<Salesforce_Ticket__c> listST = [select id, salesforce_project__c, status__c from salesforce_ticket__c where Salesforce_Project__c in :spId and status__c != 'Completed'];
+
+        //for each loop ticket
+            //get new project from newMap
+                //addError
+        for (Salesforce_Ticket__c eachST : listST) {
+            //get SP record
+            Salesforce_Project__c sp = spTriggerNewMap.get(eachST.Salesforce_Project__c);
+            sp.addError('Cannot complete project because all its tickets are NOT completed.');
+        }
+
+    }
 }

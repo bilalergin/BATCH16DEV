@@ -84,5 +84,36 @@ public class AccountTriggerHandler {
         }
     }
 }
+
+    //method to send email to user
+    public static void sendAccEmail(List<Account> accTriggerNew) {
+        //list<account>
+            //for i
+                //add one account to list
+        //insert list //bu sıralamayı kullandık
+
+        //write code to send email
+       List<Messaging.SingleEmailMessage> listEmailMessage = new List<Messaging.SingleEmailMessage>();
+
+       for (Account newAcc : accTriggerNew) {
+        //email address where we want to send email.
+        List<string> emailAdresses = new List<string>();
+        emailAdresses.add(userinfo.getUserEmail());
+
+        //email message
+        Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
+        //to address
+        msg.setToAddresses(emailAdresses);
+        //subject
+        msg.setSubject('Account restored succesfully: ' + newAcc.Name);
+        //body
+        msg.setPlainTextBody('Hello Hello, account is succesfully UNDELETED. Enjoy');
+        
+        listEmailMessage.add(msg);
+       }
+       //send email
+       Messaging.sendEmail(listEmailMessage);
+        
+    }
  }
 
