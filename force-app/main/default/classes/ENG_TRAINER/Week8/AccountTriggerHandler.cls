@@ -1,9 +1,6 @@
 public class AccountTriggerHandler {
-    public static void updateAccDescription(
-             List<account> accTriggerNew,
-             List<account> accTriggerOld,
-             Map<id, account> accTriggerNewMap,
-             Map<id, account> accTriggerOldmap
+    public static void updateAccDescription(List<account> accTriggerNew, List<account> accTriggerOld,
+             Map<id, account> accTriggerNewMap, Map<id, account> accTriggerOldmap
     ) {
          for (Account newAcc : accTriggerNew) {
              //boolean flag to maintain if we want to update description field
@@ -37,4 +34,55 @@ public class AccountTriggerHandler {
  
          }
     }
+ 
+     public static void updateVIPContacts(List<account> accTriggerNew, List<account> accTriggerOld,
+             Map<id, account> accTriggerNewMap, Map<id, account> accTriggerOldmap
+    ) {
+         //Ex: We are update 10 accounts.
+             //out of these 10, for 6 accounts we are updating VIP field. for other 4, we are updating phone field.
+                 //we need to get ID for 6 accounts.
+                     //Fetch all contacts of these 6 accounts. We found 24 contacts
+                         //update vip field for all(24)  contacts of these accounts
+         
+         //get acc ids where we update VIP field
+         set<id> accIds = new set<id>();
+         for (account newAcc : accTriggerNew) {
+             //check if VIP is changed. HOW??
+             //new acc VIP != old acc VIP
+             if (newAcc.vip__c != accTriggerOldMap.get(newAcc.id).vip__c) {
+                 accIds.add(newAcc.Id);
+             }
+         }
+ 
+         if(!accIds.isEmpty()){
+             //fetch all contacts
+             list<contact> listContacts = [select id, name, vip__c, accountid from contact where accountid in :accIds];
+ 
+             //for each loop contact
+                 //set vip field of contact same as it's accounts vip field value
+             
+             for (contact eachContact : listcontacts) {
+                 //eachContact.vip__c = account's vip field
+                 //how to get account's vip field?
+                 id accId = eachContact.accountid; //account id.
+                 account newAccount = accTriggerNewMap.get(accId);
+ 
+                 eachContact.vip__c = newAccount.vip__c;
+             }
+             update listContacts;
+         }
+         
+    }
+         //do not allow user to delete active account
+   public static void validateAccDelete(list<account> accTriggerOld) {
+    //addError is allowed in trigger.new -> true for insert And Update.
+    //for delete addError is allowed in trigger.old ONLY
+
+    for (account oldAcc : accTriggerOld) {
+        if (oldAcc.active__c  == 'Yes') {
+            oldAcc.addError('Cannot delete active account.');
+        }
+    }
+}
  }
+

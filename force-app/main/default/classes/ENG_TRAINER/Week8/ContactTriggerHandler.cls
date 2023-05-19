@@ -5,7 +5,7 @@ public class ContactTriggerHandler {
  
          //addError method to add validation or throw error in trigger.
              //we can use addError method in ONE record of trigger.new or trigger.newMap
-             //we cannot use addError method on trigger.old or trigger.oldMap
+             //we cannot use addError method on trigger.old or trigger.oldMap while inserting or updating
          
          for (Contact newContact : cTriggerNew) {
              //if old leadsource is partner referral.

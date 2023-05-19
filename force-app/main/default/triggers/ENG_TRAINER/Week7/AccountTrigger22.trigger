@@ -1,8 +1,35 @@
-trigger AccountTrigger22 on Account ( before insert, after insert, before update, after update) {
+trigger AccountTrigger22 on Account ( before insert, after insert, before update, after update, before delete, after delete, after undelete) {
+       
+    //! 19.05.2023
     if (Trigger.isBefore) {
-        AccountTriggerHandler.updateAccDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+        //insert or update
+        if (Trigger.isinsert || Trigger.isUpdate) {
+            AccountTriggerHandler.updateAccDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+        }
+        //delete
+        if(Trigger.isDelete){
+            //validate here.
+            AccountTriggerHandler.validateAccDelete(Trigger.old);
+        }
     }
+    if(Trigger.isAfter && Trigger.isUndelete){
+        //call method to send email to user
+        
+    }
+
     
+    
+    //! 16.05.2023
+
+    // if (Trigger.isBefore) {
+    //     AccountTriggerHandler.updateAccDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+    // }
+    // if (Trigger.isAfter && Trigger.isUpdate) {
+    //     //call handler method to update all contact's VIP field.
+    //     AccountTriggerHandler.updateVIPContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+    // }
+    
+  
    //! 16.05.2023
 
  
