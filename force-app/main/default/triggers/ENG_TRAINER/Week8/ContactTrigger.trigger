@@ -1,11 +1,37 @@
 
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 
-    Set<Id> acccountIds = new Set<Id>();
-    if (Trigger.isInsert || Trigger.isUpdate) {
-        
-    }
+    Set<Id> accountIds = new Set<Id>();
 
+    if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
+        for (Contact con : Trigger.new) {
+            if (con.AccountId != null) {
+                accountIds.add(con.AccountId);
+            }
+        }
+    }
+    if (Trigger.isUpdate || Trigger.isDelete ) {
+        for (Contact con : Trigger.old) {
+            if (con.AccountId != null) {
+                accountIds.add(con.AccountId);
+            }
+        }
+    }
+    if (!accountIds.isEmpty()) {
+        List<Account> accList = [SELECT id,number_of_contacts__c, (SELECT id from Contacts) FROM Account WHERE id in : accountIds];
+
+        if (!accList.isEmpty()) {
+            List<Account> updateAccList = new List<Account>();
+            for (Account acc : accList) {
+                Account objAcc = new Account(Id = acc.id, Number_of_COntacts__c = acc.Contacts.size());
+                updateAccList.add(objAcc);
+            }
+            if (!updateAccList.isEmpty()) {
+                update updateAccList;
+            }
+        }            
+    }
+  
 
     //! 16.05.2023
     if (Trigger.isBefore && Trigger.isUpdate) {
