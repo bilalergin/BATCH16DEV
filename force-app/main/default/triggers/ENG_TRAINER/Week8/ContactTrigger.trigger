@@ -1,6 +1,8 @@
 
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 
+    //create a set of ids to store account ids
+    //account id of all updated/inserted/deleted/undeleted contact ids
     Set<Id> accountIds = new Set<Id>();
 
     if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
@@ -17,6 +19,9 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
             }
         }
     }
+
+    //if the list is not empty
+    //do soql to get all account and contacts inside it
     if (!accountIds.isEmpty()) {
         List<Account> accList = [SELECT id,number_of_contacts__c, (SELECT id from Contacts) FROM Account WHERE id in : accountIds];
 
