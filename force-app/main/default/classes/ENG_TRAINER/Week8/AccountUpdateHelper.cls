@@ -1,4 +1,5 @@
 public class AccountUpdateHelper {
+    //! 20.05.2023
     @InvocableMethod//flow ve process builder la kullanıyoruz
     public static void updateAccountWebsite(List<id> accIds) {
         //get all account records for these IDS

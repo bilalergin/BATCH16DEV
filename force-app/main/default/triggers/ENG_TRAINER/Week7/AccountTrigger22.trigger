@@ -22,13 +22,13 @@ trigger AccountTrigger22 on Account ( before insert, after insert, before update
     
     //! 16.05.2023
 
-    // if (Trigger.isBefore) {
-    //     AccountTriggerHandler.updateAccDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
-    // }
-    // if (Trigger.isAfter && Trigger.isUpdate) {
-    //     //call handler method to update all contact's VIP field.
-    //     AccountTriggerHandler.updateVIPContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
-    // }
+    if (Trigger.isBefore) {
+        AccountTriggerHandler.updateAccDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+    }
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        //call handler method to update all contact's VIP field.
+        AccountTriggerHandler.updateVIPContacts(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.Oldmap);
+    }
     
   
    //! 16.05.2023

@@ -53,10 +53,9 @@ public class AccountTriggerHandler {
                  accIds.add(newAcc.Id);
              }
          }
- 
          if(!accIds.isEmpty()){
              //fetch all contacts
-             list<contact> listContacts = [select id, name, vip__c, accountid from contact where accountid in :accIds];
+             list<contact> listContacts = [select id, name, vip__c, accountid from contact where accountid in :accIds and leadsource != 'Partner Referral'];
  
              //for each loop contact
                  //set vip field of contact same as it's accounts vip field value
@@ -71,49 +70,42 @@ public class AccountTriggerHandler {
              }
              update listContacts;
          }
-         
     }
-         //do not allow user to delete active account
-   public static void validateAccDelete(list<account> accTriggerOld) {
-    //addError is allowed in trigger.new -> true for insert And Update.
-    //for delete addError is allowed in trigger.old ONLY
-
-    for (account oldAcc : accTriggerOld) {
-        if (oldAcc.active__c  == 'Yes') {
-            oldAcc.addError('Cannot delete active account.');
-        }
+ 
+    //do not allow user to delete active account
+    public static void validateAccDelete(list<account> accTriggerOld) {
+         //addError is allowed in trigger.new -> true for insert And Update.
+         //for delete addError is allowed in trigger.old ONLY
+ 
+         for (account oldAcc : accTriggerOld) {
+             if (oldAcc.active__c  == 'Yes') {
+                 oldAcc.addError('Cannot delete active account.');
+             }
+         }
     }
-}
-
+ 
     //method to send email to user
-    public static void sendAccEmail(List<Account> accTriggerNew) {
-        //list<account>
-            //for i
-                //add one account to list
-        //insert list //bu sıralamayı kullandık
-
-        //write code to send email
-       List<Messaging.SingleEmailMessage> listEmailMessage = new List<Messaging.SingleEmailMessage>();
-
-       for (Account newAcc : accTriggerNew) {
-        //email address where we want to send email.
-        List<string> emailAdresses = new List<string>();
-        emailAdresses.add(userinfo.getUserEmail());
-
-        //email message
-        Messaging.SingleEmailMessage msg = new Messaging.SingleEmailMessage();
-        //to address
-        msg.setToAddresses(emailAdresses);
-        //subject
-        msg.setSubject('Account restored succesfully: ' + newAcc.Name);
-        //body
-        msg.setPlainTextBody('Hello Hello, account is succesfully UNDELETED. Enjoy');
-        
-        listEmailMessage.add(msg);
-       }
-       //send email
-       Messaging.sendEmail(listEmailMessage);
-        
+    public static void sendAccEmail(List<account> accTriggerNew) {
+         //write code to send email
+         List<messaging.SingleEmailMessage> listEmailMsg = new list<messaging.SingleEmailMessage>();
+ 
+         for (account newAcc : accTriggerNew) {
+             //email adresses where we want to send email.
+             List<string> emailAddresses = new list<string>();
+             emailAddresses.add(userinfo.getUserEmail());
+ 
+             //email message
+             Messaging.SingleEmailMessage msg = new messaging.SingleEmailMessage();
+             //to address
+             msg.setToAddresses(emailAddresses);
+             //subject
+             msg.setSubject('Account restored successfully: ' + newAcc.name);
+             //body
+             msg.setPlainTextBody('Hello Hello, account is successfully UNDELETED. Enjoy');
+ 
+             listEmailMsg.add(msg);
+         }
+         //send email
+         Messaging.sendEmail(listEmailMsg);
     }
  }
-

@@ -1,12 +1,14 @@
 @istest
 public class SoqlAndDmlTrTest {
+        //! 25.05.2023
+
     @istest
     private static void getAccWithOppTest() {
         List<Account> accList = new List<Account>();
         // for (Integer i = 1; i <= 3; i++) {
         //     account acc = new account();
         //     acc.name = 'Demo ' + i;
-        //     accList.add(acc);
+        //     accList.add(acc);//alttaki insertün for la yapılışı
         // }
         account acc1 = new account();
         acc1.name = 'Demo 1';

@@ -1,4 +1,6 @@
 @istest
+    //! 25.05.2023
+
 public class IfAndForLoopTrTest {
     @istest
     private static void phoneTest() {
@@ -15,7 +17,7 @@ public class IfAndForLoopTrTest {
     @istest
     private static void sumTest() {
         IfAndForLoopTr ifl = new IfAndForLoopTr();
-        ifl.sum(5);
+        ifl.sum(5);//bu static olmadığı için instance üretiyoruz ama return etmediği için assert yapmıyoruz. eğer static olsaydı class adı ve metot adıyla çağırabilirdik.
     }
     @istest
     private static void helloTest() {
