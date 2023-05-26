@@ -1,4 +1,4 @@
-public  class SoqlAndDml {
+public  class SoqlAndDmlTr {
     public static integer getAccWithOpp() {
         set<id> IdAcc= new set<id>();
         list<opportunity> lstOpp=[select id,name,AccountId from Opportunity where accountId != null];

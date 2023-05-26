@@ -1,8 +1,8 @@
 @istest
-public class IfAndForLoopTest {
+public class IfAndForLoopTrTest {
     @istest
     private static void phoneTest() {
-        IfAndForLoop ifl = new IfAndForLoop();
+        IfAndForLoopTr ifl = new IfAndForLoopTr();
         string msg = ifl.phone('2123457698');
         assert.isNotNull(msg);
         string msg2 = ifl.phone('2163457698');
@@ -14,12 +14,12 @@ public class IfAndForLoopTest {
     }
     @istest
     private static void sumTest() {
-        IfAndForLoop ifl = new IfAndForLoop();
+        IfAndForLoopTr ifl = new IfAndForLoopTr();
         ifl.sum(5);
     }
     @istest
     private static void helloTest() {
-        IfAndForLoop ifl = new IfAndForLoop();
+        IfAndForLoopTr ifl = new IfAndForLoopTr();
         string msg = ifl.hello('ali');
         assert.isNotNull(msg);
         assert.areEqual(' hello 1 hello 2 hello 3', msg);

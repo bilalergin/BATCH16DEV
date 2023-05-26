@@ -1,5 +1,7 @@
 public  class DmlDemo16Again {
-    public static void dmlBulkUpdateRight1() {
+    
+        //! 25.05.2023
+public static void dmlBulkUpdateRight1() {
         
         list<account> allAccounts = [select id, name from account where createddate = TODAY];
 

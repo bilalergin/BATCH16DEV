@@ -1,6 +1,8 @@
 // - ONE Test class per class or trigger.
 // - naming: append 'Test' after class name or trigger name
 // - to create test class, annotate our class with @isTest
+    //! 25.05.2023
+
 @isTest
 public class Calculator16Test {
     //we write test method to TEST each UNIT.

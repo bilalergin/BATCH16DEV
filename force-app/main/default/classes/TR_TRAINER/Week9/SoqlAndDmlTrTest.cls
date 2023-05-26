@@ -1,5 +1,5 @@
 @istest
-public class SoqlAndDmlTest {
+public class SoqlAndDmlTrTest {
     @istest
     private static void getAccWithOppTest() {
         List<Account> accList = new List<Account>();
@@ -30,12 +30,12 @@ public class SoqlAndDmlTest {
         }
         insert oppList;
 
-        integer sz = SoqlAndDml.getAccWithOpp();
+        integer sz = SoqlAndDmlTr.getAccWithOpp();
         assert.areEqual(3, sz);
     }
     @istest
     private static void createAccountTest() {
-        SoqlAndDml.createAccount('Softinnovas');
+        SoqlAndDmlTr.createAccount('Softinnovas');
         account acc = [select id, name from account limit 1];
         assert.areEqual('Softinnovas', acc.name);
         List<Contact> conList = [select id from contact];

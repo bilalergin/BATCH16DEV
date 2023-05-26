@@ -1,4 +1,4 @@
-public class IfAndForLoop {
+public class IfAndForLoopTr {
     //1.	String olarak girilen istanbul telefon numaralarinin Avrupa yakasina mi Anadolu yakasina mi ait oldugunu donen bir metot yazin?
     public string phone(string phoneNumber) {
         string message;
