@@ -50,7 +50,7 @@ public with sharing class OppTRiggerHandler {
             for (Opportunity opp : oppList) {
                 toplam += opp.Amount;// toplam = toplam + opp.Amount;
             }
-            acc.Description = 'Bu Accounta bagli tum opportunitylerin Amountlar toplami = ' + toplam;
+            acc.Description = 'Bu Accounta bagli tum opportunitylerin Amountlar toplami = ' + toplam;//description decimal olan amount u artık stringe döndürdü.
         }
         update acclist;
     }

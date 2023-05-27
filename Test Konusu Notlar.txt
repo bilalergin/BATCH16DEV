@@ -1,0 +1,36 @@
+Yaptığımız testi doğrulamak için System.assert Equals(beklenenDeğer,  gerçekleşenDeğer) gibi System Class methodlarını kullanırız. 
+
+"Test işlemlerinde hali hazırda org'da bulunan record'ları kullanmayız, test sırasında DML işlemi sonucu recordlar sanal olarak oluşturulur. Test işlemi bu sanal record'lar vasıtasıyla yapılır.
+DML işlemlerini test ederken, ilgili class ve method çağırılır. Test sırasında bir DML işlemi olup olmadığını kontrol etmek için test method'unda SOQL yapılır."
+
+TestSetup: Class'daki tüm test method'ları için kullanılabilen ortak test record'ları oluşturmak için kullanılır. Böylelikle test datalarımızı her method için ayrı ayrı oluşturmamıza gerek kalmaz.
+
+1.adım:Eğer methodumuz databaseden record çekip kullanıyorsa test methodunda sanal database hazırlıyoruz.
+2.adım:test etmek istediğimiz methodu çağırıyoruz.Eğer trigger ise onu tetikleyecek DML işlemini yapacağız.
+3.adım:Kodumuz beklendiği gibi çalışıp çalışmadığını system.assert methodlarıyla kontrol ediyoruz.
+kodumuzun en az %75 code coverage olması lazım ama biz %90 a hatta mümkünde %100  e odaklanmalıyız.
+
+Test ortamında database e ulaşamayız ama bütün class,trigger,flow.. herşeye ulaşabiliriz.Yaptığınız herhangi bir dml ilgili triggerları tetikler.
+
+StartTest ve stopTest governor limitleri sıfırlamızı sağlar. Böylelikle test sırasında limitlere takılma olasılığımız azalmış olur. 
+Her test method'u için bir kere kullanılabilir.
+ASYNC methodları test ederken StartTest() ve stopTest() kullanmak zorundayız
+
+Asynchronous: Senkron olmayan anlamına gelir.
+Apex de hatırlarsanız şu ana kadar her işlemin bir sırası olduğunu öğrendik ve Order of execution la her işlemin hangi sırada olduğunu gözlemledik.
+sıra ile çalışır derken class içinde bile kodlarımız yazdığımız sıra ile çalışıyor. Mesela önce boş liste instance üretiyoruz. sonra ona eleman ekliyoruz. sonra insert edebiliyoruz. Bunların sırası karışsa işlem istediğimiz gibi olmaz.
+Ama sıralamayı beklemesini istemediğimiz bir takım işlemler olabilir.
+İşte bu süreçleri Asynchronous yöntemlerle yaptırabiliriz.
+
+Future Method: Sistem kaynakları müsait olunca çalışan ashenkron method'tur. 
+Future Method;
+Static olmalıdır.
+Return type void olmalıdır.
+Parametre olarak primitive data türleri ve bunların listelerini alabilir.
+sObject'leri veya Object'leri parametre olarak alamaz.
+
+@Future Methodun Çalışma Mantığı
+Çamaşır makinesini çalıştırdığımızda sular kesikse siz başlat dediğinizde çalışmaz ama sular gelince kendisi otomatik çalışır ve biter.
+future da böyle sistem kaynakları müsait olduğunda diğer sıralı işlemleri beklemeden çalışır.
+
+

@@ -1,7 +1,12 @@
 @istest
 public class SoqlAndDmlTrTest {
         //! 25.05.2023
+/*
+Yaptığımız testi doğrulamak için System.assert Equals(beklenenDeğer,  gerçekleşenDeğer) gibi System Class methodlarını kullanırız. 
 
+"Test işlemlerinde hali hazırda org'da bulunan record'ları kullanmayız, test sırasında DML işlemi sonucu recordlar sanal olarak oluşturulur. Test işlemi bu sanal record'lar vasıtasıyla yapılır.
+DML işlemlerini test ederken, ilgili class ve method çağırılır. Test sırasında bir DML işlemi olup olmadığını kontrol etmek için test method'unda SOQL yapılır."
+*/
     @istest
     private static void getAccWithOppTest() {
         List<Account> accList = new List<Account>();
