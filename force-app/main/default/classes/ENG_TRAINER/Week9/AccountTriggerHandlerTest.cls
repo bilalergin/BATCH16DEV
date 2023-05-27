@@ -93,6 +93,7 @@ public class AccountTriggerHandlerTest {
         //assert that VIP field is updated for all its contacts
             //remember: to assert, query first.
         list<contact> allContacts = [select id, vip__c from contact];
+        assert.areEqual(300, allContacts.size());//alttakinin farklı bir yazımı
         for (contact c : allContacts) {
             assert.areEqual(true, c.vip__c);
         }

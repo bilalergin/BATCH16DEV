@@ -25,4 +25,14 @@ public class EmployeeTriggerHandler {
                 }
             }
         }
+        public static void synchMethod1(List<employee__c> empTriggerNew) {
+            system.debug('inside synchMethod');
+            system.debug('employees ' + empTriggerNew);
+        }
+    
+        @future
+        public static void futureMethod1(set<id> empIds) {
+            system.debug('inside future method');
+            system.debug('employee ids ' + empIds);
+        }
     }

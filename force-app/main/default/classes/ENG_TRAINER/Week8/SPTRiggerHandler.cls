@@ -47,4 +47,15 @@ public class SPTRiggerHandler {
         }
 
     }
+    @future
+    public static void updateDescFuture(set<id> spIds) {
+        //we want to update description for all the projects where id is spids
+        
+        //fetch all records using soql
+        List<Salesforce_Project__c> listSP = [select id, description__c from Salesforce_Project__c where id in :spIds];
+        for (Salesforce_Project__c sp : listSP) {
+            sp.Description__c = 'Updated from future.';
+        }
+        update listSP;
+    }
 }
