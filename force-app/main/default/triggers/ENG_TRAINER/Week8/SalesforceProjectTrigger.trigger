@@ -6,7 +6,10 @@ trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, after 
     }
 
     if (Trigger.isBefore && Trigger.isUpdate) {
-        // vali date
-        // SPTriggerHandler.validate1(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+        //validate
+        //SPTriggerHandler.validate1(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+    }
+    if (Trigger.isAfter && Trigger.isUpdate) {
+        SPTriggerHandler.spCompleted(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
     }
 }

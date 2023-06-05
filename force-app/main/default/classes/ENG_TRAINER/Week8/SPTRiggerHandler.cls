@@ -2,6 +2,7 @@ public class SPTRiggerHandler {
     //a method which automates default ticket creation.
     //parameter: List<SP> newly created salesforce project records.
         //If we are insert 50 project, we have to create corresponding 50 tickets. 1 for each Project.
+        //! 20.05.2023
     public static void createDefaultTicket(list<salesforce_project__c> spTriggerNew) {
         //create list of ticket so create bulk records
         List<Salesforce_Ticket__c> listST = new List<Salesforce_Ticket__c>();
@@ -14,7 +15,9 @@ public class SPTRiggerHandler {
         }
         insert listST;
     }
-    //! Amacımız: Eğer ticket lar complete değilse project de complete yapılamasın
+
+        //! Amacımız: Eğer ticket lar complete değilse project de complete yapılamasın
+
     public static void validate1(list<salesforce_project__c> spTriggerNew, list<salesforce_project__c> spTriggerOld, Map<id, salesforce_project__c> spTriggerNewMap,Map<id, salesforce_project__c> spTriggerOldMap) {
         //logic
         
@@ -47,6 +50,7 @@ public class SPTRiggerHandler {
         }
 
     }
+
     @future
     public static void updateDescFuture(set<id> spIds) {
         //we want to update description for all the projects where id is spids
@@ -57,5 +61,33 @@ public class SPTRiggerHandler {
             sp.Description__c = 'Updated from future.';
         }
         update listSP;
+    }
+    //!31.05.2023
+
+        //! Amacımız: Eğer project complete olursa tüm ticketlar complete olsun
+
+    public static void spCompleted(list<salesforce_project__c> spTriggerNew, list<salesforce_project__c> spTriggerOld, Map<id, salesforce_project__c> spTriggerNewMap,Map<id, salesforce_project__c> spTriggerOldMap) {
+        set<id> spIds = new set<id>();
+
+        for (Salesforce_Project__c eachSP : spTriggerNew) {
+            if (eachSP.Status__c != spTriggerOldMap.get(eachSP.id).Status__c
+            && eachSP.Status__c == 'Completed') {
+                spIds.add(eachSP.Id);
+            }
+        }
+        if(!spIds.isempty()){
+            //call future method.
+            updateTicketStatus(spIds);
+        }
+    }
+
+    @future
+    private static void updateTicketStatus(set<id> spIds) {
+        //get or fetch all tickets which are NOT completed for all these SPIDS
+        list<Salesforce_Ticket__c> allST = [select id, status__c from Salesforce_Ticket__c where status__c != 'Completed' and Salesforce_Project__c in :spIds];
+        for (Salesforce_Ticket__c st : allST) {
+            st.Status__c = 'Completed';
+        }
+        update allST;
     }
 }
