@@ -86,3 +86,19 @@ Batch apex:
                 - new gov limits for each execution.
         - finish
             - executes at the end. Only Once.
+        - database.stateful
+            - retains value of all execution throughout the batch execution
+
+        Test class for Batch Jobs
+            - prepare data
+            - execute batch in between start test and stop test for sure
+            - tiny thing to take care of: we should NOT divide data when write test for batch.
+
+    Queueable
+            - similar to future, a little advanced version
+                - we write it like batch
+            - we can chain jobs.
+            - we can get job id to monitor progress
+            - we can pass all datatypes, including sObjects.
+            - queueable is interface
+                - execute method is mandatory

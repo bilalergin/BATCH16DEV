@@ -1,5 +1,36 @@
 trigger AccountTrigger22 on Account ( before insert, after insert, before update, after update, before delete, after delete, after undelete) {
        
+   //! 01.06.2023
+   //1 Account create edildiğinde. ona bağlı 1 tane Contact otomatik olarak create edilsin. last name i contact diye isimlendirilsin.. future metot ile..
+   if (trigger.isInsert && trigger.isAfter) {
+        AccountTriggerHandler16.createContact(trigger.new);
+            /*List<Contact> conList = new List<Contact>();
+            for (account acc : trigger.new) {
+                Contact con = new Contact();
+                con.LastName = 'Contact';
+                con.AccountId = acc.id;
+                conList.add(con);
+            }
+            insert conList;*/
+    }  
+   //! 01.06.2023
+
+ if (trigger.isAfter && trigger.isUpdate) {
+        AccountTriggerHandler16.descriptionUpdate(trigger.new, trigger.oldMap);
+       
+    }
+   
+    //! 03.06.2023
+   if (Trigger.isAfter &&  Trigger.isInsert) {
+        //new instance of queueable class
+        AccountsQueueableExample aq = new AccountsQueueableExample();
+        aq.listAcc = Trigger.new;
+
+        //enqueuing job
+        id jobId = system.enqueueJob(aq);
+    }
+   
+   
     //! 19.05.2023
     if (Trigger.isBefore) {
         //insert or update
