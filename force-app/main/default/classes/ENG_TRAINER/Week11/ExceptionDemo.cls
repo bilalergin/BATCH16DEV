@@ -19,6 +19,9 @@ public class ExceptionDemo {
  
          integer x = 10/j;
          system.debug('x ==> ' + x);
+
+         Account a2 = [select id, name from account where name !=: n];
+         //Bu kod query exception varir. accountu list içinde yazarsak hata vermez
      } catch(DmlException de){
          system.debug('DML went wrong buddy');
          system.debug('de message: ' + de.getMessage());
@@ -34,4 +37,25 @@ public class ExceptionDemo {
      }
      system.debug('code complete. apex is simple.') ;
     }
+    public static account demo3(string n) {
+        try {
+            //enabled
+            account a2 = [select id, name from account where name = :n limit 1];
+            system.debug(a2);
+
+
+            account a = new account(name = n);
+            insert a;
+            return a;
+        } catch (Exception Ex) {
+            system.debug('Something went wrong buddy.');
+            system.debug('general or common exception: ' + ex);
+            return new account();
+        } finally {
+            //disable it in finally
+            system.debug('finally finally');
+            system.debug('apex is still simple');
+        }
+       
+   }
  }

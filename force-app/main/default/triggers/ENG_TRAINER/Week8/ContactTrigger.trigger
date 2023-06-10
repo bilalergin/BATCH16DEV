@@ -17,8 +17,8 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
   }  
     
     // //! 18.05.2023 yukarıdaki metotla aynı ama handları yok
-    // //create a set of ids to store account ids
-    // //account id of all updated/inserted/deleted/undeleted contact ids
+    // create a set of ids to store account ids
+    // account id of all updated/inserted/deleted/undeleted contact ids
     // Set<Id> accountIds = new Set<Id>();
 
     // if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
@@ -36,8 +36,8 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
     //     }
     // }
 
-    // //if the list is not empty
-    // //do soql to get all account and contacts inside it
+    // if the list is not empty
+    // do soql to get all account and contacts inside it
     // if (!accountIds.isEmpty()) {
     //     List<Account> accList = [SELECT id,number_of_contacts__c, (SELECT id from Contacts) FROM Account WHERE id in : accountIds];
 
@@ -55,11 +55,11 @@ trigger ContactTrigger on Contact (before insert, after insert, before update, a
   
 
     //! 16.05.2023
-    // if (Trigger.isBefore && Trigger.isUpdate) {
-    //     //call handler method to validate contact update
-    //     ContactTriggerHandler.validate1(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
-    //     ContactTriggerHandler.validate2(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
-    // }
+    if (Trigger.isBefore && Trigger.isUpdate) {
+        //call handler method to validate contact update
+        ContactTriggerHandler.validate1(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+        ContactTriggerHandler.validate2(trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
+    }
     //! 12.05.2023
 // //this will be true in before insert and before update
 // if (Trigger.isBefore) {
