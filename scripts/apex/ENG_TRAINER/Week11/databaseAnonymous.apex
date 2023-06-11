@@ -7,7 +7,7 @@
 //insert listAcc; //how many records will this insert? //! 0 biri insert olmayınca diğerleri de olmuyor
             //list, allOrNothing
 //Database.insert(listAcc, true);//?hiçbiri insert olmaz
-//Database.insert(listAcc, false); //?goog lar insert olur, bad ler olmaz ama hata vermez 
+//Database.insert(listAcc, false); //?good lar insert olur, bad ler olmaz ama hata vermez 
 //! database class, insert metot
 
 List<Database.saveResult> allResults = Database.insert(listAcc, false); 
@@ -16,10 +16,15 @@ List<Database.saveResult> allResults = Database.insert(listAcc, false);
 
 for(Database.saveResult res: allResults){
     if(res.isSuccess()){
-        system.debug('record inserted successfully. Record id is: ' + res.getId());
+        system.debug('record inserted 
+        successfully. Record id is: ' + res.getId());
     } else {
         system.debug('NOT success. ERROR is : ' + res.getErrors());
     }
 }
+
+List<database.SaveResult> r2 = database.update(l2, false);
+list<database.DeleteResult> r3 = database.delete(lids, false);
+list<database.UndeleteResult> r4 = database.undelete(lids, false);
 
 delete [select id, name from account where createddate = TODAY ];

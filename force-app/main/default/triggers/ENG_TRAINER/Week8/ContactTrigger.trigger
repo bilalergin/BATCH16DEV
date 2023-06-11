@@ -1,20 +1,20 @@
 
 trigger ContactTrigger on Contact (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 
-  if (trigger.isAfter) {
-      // 1. asama insert
-      if (trigger.isInsert || trigger.isUndelete) {
-        ContactTriggerHandler.insertMetot(trigger.new);
-      }
-      // 2. asama update
-      if (trigger.isUpdate) {
-        ContactTriggerHandler.updateMetot(trigger.new, trigger.oldMap);
-      }
-      // 3. asama delete
-      if (trigger.isDelete) {
-        ContactTriggerHandler.deleteMetot(trigger.old);
-      }
-  }  
+  // if (trigger.isAfter) {
+  //     // 1. asama insert
+  //     if (trigger.isInsert || trigger.isUndelete) {
+  //       ContactTriggerHandler.insertMetot(trigger.new);
+  //     }
+  //     // 2. asama update
+  //     if (trigger.isUpdate) {
+  //       ContactTriggerHandler.updateMetot(trigger.new, trigger.oldMap);
+  //     }
+  //     // 3. asama delete
+  //     if (trigger.isDelete) {
+  //       ContactTriggerHandler.deleteMetot(trigger.old);
+  //     }
+  // }  
     
     // //! 18.05.2023 yukarıdaki metotla aynı ama handları yok
     // create a set of ids to store account ids

@@ -6,7 +6,7 @@
 
 try {
     Opportunity opp = new Opportunity();
-    //opp.name = 'Try test';
+    //opp.name = 'Try test'; //! bunu yazarsak normal çalışır
     opp.CloseDate = date.today().addDays(60);
     opp.StageName = 'Prospecting';
     insert opp;
@@ -39,7 +39,7 @@ try {
     System.debug(a);
 }
 catch(DmlException dex){
-    System.debug('Dml Error : ' + dex);
+    System.debug('Dml Error : ' + dex);// bunu atlar nulla geçer
 }
 catch(NullPointerException npe){
     System.debug('Null Error : ' + npe);
@@ -50,7 +50,7 @@ catch (Exception ex) {
 
 // List<String> List2 = new List<String>();
 // List2.add('John');
-// string b = List2[1];
+// string b = List2[1];// 1 eleman olduğu için buraya index 0 yazmamız lazım
 // System.debug(b);
 
 try {
@@ -66,7 +66,7 @@ catch (Exception ex) {
     System.debug('Genel Error : ' + ex);
 }
 
-// string s;
+// string s; 
 // Boolean c = s.contains('abc');
 // System.debug(c);
 
@@ -76,7 +76,7 @@ try {
     System.debug(c);
 }
 catch(DmlException dex){
-    System.debug('Dml Error : ' + dex);
+    System.debug('Dml Error : ' + dex);//nullpointer olduğu için bu çalışmayacak
 }
 catch (Exception ex) {
     // error_log err1 = new error_log();
