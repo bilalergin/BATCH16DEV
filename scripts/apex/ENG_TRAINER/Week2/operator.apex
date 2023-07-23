@@ -26,4 +26,4 @@ y--; // y = y-1; 80
 
 y = 1;
 y--;
-system.debug(y);//
+system.debug(y);//0

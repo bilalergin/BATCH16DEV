@@ -9,3 +9,5 @@ system.debug(ret99);
 ListDemo.randomIntList();
 ListDemo.candidateList();
 
+boolean check1 = ListDemo2.candidateList('Steve');
+system.debug('check 1 is ' + check1);

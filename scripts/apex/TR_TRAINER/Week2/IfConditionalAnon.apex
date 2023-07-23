@@ -6,8 +6,8 @@ decimal sonuc = ifc1.kitapUcreti('Sefiller', 11.10, 5);
 System.debug('toplam odeme = ' + sonuc);
 
 IfConditional ifc2 = new IfConditional();
-string sonuc = ifc2.notOrtalamasi(65, 55, 85);
-System.debug('Dersten aldiginiz not => ' + sonuc);
+string sonuc1 = ifc2.notOrtalamasi(65, 55, 85);
+System.debug('Dersten aldiginiz not => ' + sonuc1);
 string sonuc2 = ifc2.notOrtalamasi(-65, 55, -85);
 System.debug('Dersten aldiginiz not => ' + sonuc2);
 string sonuc3 = ifc2.notOrtalamasi(15, 05, 25);

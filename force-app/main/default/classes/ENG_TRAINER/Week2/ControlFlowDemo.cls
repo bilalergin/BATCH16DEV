@@ -25,7 +25,7 @@ public class ControlFlowDemo {
 
     public void checkNumber(integer x){
 
-        //* iç içe if olursa nested is oluyor.
+        //! iç içe if olursa nested if oluyor.
         //x = -15
         if(x > 0){
             system.debug('x is a positive number');

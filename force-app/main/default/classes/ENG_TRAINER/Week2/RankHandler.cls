@@ -6,7 +6,7 @@ public class RankHandler {
     //more 10 -> aluminium
     public string rankPrize(integer rank){
         string prize = '';
-        //* birden fazla varible varsa if else kullanmamız lazım
+        //! birden fazla varible varsa if else kullanmamız lazım
         //code to set value of prize
         if (rank == 1) {
             prize = 'Gold';
@@ -26,7 +26,7 @@ public class RankHandler {
 
     public string rankPrizeSwitch(integer rank){
         string prize = '';
-        //* sadece bir variable varsa switch kullanırız
+        //! sadece bir variable varsa switch kullanırız
         switch on rank {
             when 1 {
                 prize = 'Goldd';

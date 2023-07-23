@@ -1,6 +1,6 @@
 public class LoopDemo {
     public void print1() {
-        // print1, 10 times
+        // print 1, 10 times
         // Integer i; //null olur
         Integer i = 1;//initial vaLUE
         while (i<=10) {//exit statement
@@ -11,14 +11,14 @@ public class LoopDemo {
 
     }
     //print 1 to 25
-    public void print_in_while() {
+    public void print_int_while() {
         Integer i = 1;
         while (i<=25) {
             System.debug(i);
             i++;
             
         }
-        System.debug('after while i ==> ' + i); //what will be value of i?26 Bu loopun dışındaki değer. İ sorulduğunda hep while ın dışındaki değeri artış durumuna göre söyleyeceğiz. ikişerli artsaydı 27 olacaktı.
+        System.debug('after while i ==> ' + i); //what will be value of i? //! 26 Bu loopun dışındaki değer. İ sorulduğunda hep while ın dışındaki değeri artış durumuna göre söyleyeceğiz. ikişerli artsaydı 27 olacaktı.
         
     }
     //print hello 10 times
@@ -35,17 +35,17 @@ public class LoopDemo {
         
     }
 
-    //print 1 to n numbers //fori yazıp entere basarsak for hazır halde gelir
+    //print 1 to n numbers //! fori yazıp entere basarsak for hazır halde gelir
     public void print_N_numbers(Integer n) {
-        //String s ='this';////variable define işinin metot içinde yaparsak aşağıdakiler çaışır
+        //String s ='this';//! variable define işini metot içinde yaparsak aşağıdakiler çalışır
         //starts from 1, ends 10
         //starst from 0, ends 9
         for (Integer i = 1; i <= n; i++) {
             System.debug(i);
-            //System.debug(s);//variable define işinin metot içinde yaptığımız için buradan çağırabiliriz.
+            //System.debug(s);//! variable define işini metot içinde yaptığımız için buradan çağırabiliriz.
 
         }
-        //System.debug(s);//variable define işinin metot içinde yaptığımız için buradan çağırabiliriz.
+        //System.debug(s);//! variable define işini metot içinde yaptığımız için buradan çağırabiliriz.
 
     }
     //print 1 to n numbers
